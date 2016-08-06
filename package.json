@@ -1,0 +1,11 @@
+﻿{
+  "name": "enumerable-js",
+  "description": "a library that implements linq functions in javascript",
+  "version": "1.0.0",
+  "dependencies": {
+    "gulp": "*",
+    "gulp-minify": "*",
+    "jasmine-core": "*",
+    "require": "*"
+  }
+}
