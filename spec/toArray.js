@@ -10,7 +10,7 @@
     });
 });
 
-describe("asEnumerable -- single item enumerable", function ()
+describe("toArray -- single item enumerable", function ()
 {
     it("returns an array with 1 item", function ()
     {
@@ -22,7 +22,7 @@ describe("asEnumerable -- single item enumerable", function ()
     });
 });
 
-describe("asEnumerable -- multiple item enumerable", function ()
+describe("toArray -- multiple item enumerable", function ()
 {
     it("returns an array with 3 items", function ()
     {
