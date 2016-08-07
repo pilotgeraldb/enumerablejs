@@ -34,7 +34,7 @@ var Enumerable = (function ()
         return results.asEnumerable();
     };
 
-    _enumerable.prototype.select = function (fn)
+    _enumerable.prototype.select = function (obj)
     {
         var results = [];
 
