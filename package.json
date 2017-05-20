@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "dependencies": {
     "gulp": "*",
-    "gulp-minify": "*",
-    "jasmine-core": "*",
-    "require": "*"
+    "jasmine-core": "*"
   }
 }
