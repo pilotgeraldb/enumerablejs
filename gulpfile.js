@@ -1,21 +1,27 @@
-﻿// include gulp
-var gulp = require('gulp'); 
+﻿var gulp = require('gulp'); 
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+var rename = require("gulp-rename");
+var del = require("del");
 
-// include plug-ins
-var jsMinify = require('gulp-minify');
+gulp.task('build', ['js:minify']);
 
-gulp.task('minify', ['js-minify']);
+gulp.task('js:clean', function() 
+{
+    return del(['build']);
+});
 
-//js minify task
-gulp.task('js-minify', function() {
-  gulp.src('src/*.js')
-    .pipe(jsMinify({
-        ext:{
-            src:'.js',
-            min:'.min.js'
-        }//,
-        //exclude: ['tasks'],
-        //ignoreFiles: ['.ignore.js', '-min.js']
-    }))
+gulp.task('js', ['js:clean'], function() 
+{
+  return gulp.src('src/*.js')
+    .pipe(concat('enumerable.js'))
+    .pipe(gulp.dest('build/js'))
+});
+
+gulp.task('js:minify', ['js'], function() 
+{
+  return gulp.src('build/js/enumerable.js')
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('build/js'))
 });
