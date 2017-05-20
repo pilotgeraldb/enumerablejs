@@ -1,44 +1,47 @@
-﻿describe("skip while -- multiple items in collection", function ()
+﻿describe("skip while", function ()
 {
-    it("skips items in a collection that match a predicate function", function ()
+    describe("when an enumerable object has 3 items", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
-
-        var result = testArray.asEnumerable().skipWhile(function (i, item, collection)
+        it("should skip items that match a predicate function and return the others", function ()
         {
-            return (item.name === "test");
-        });
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        expect(result).toEqual([{ name: '1234', id: 2 }, { name: '5678', id: 3 }].asEnumerable());
+            var result = testArray.skipWhile(function (i, item, collection)
+            {
+                return (item.name === "test");
+            });
+
+            expect(result).toEqual(new Enumerable([{ name: '1234', id: 2 }, { name: '5678', id: 3 }]));
+        });
     });
-});
 
-describe("skip while -- single item collection", function ()
-{
-    it("skips items in a collection that match a predicate function", function ()
+    describe("when an enumerable object has 1 item", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }];
-
-        var result = testArray.asEnumerable().skipWhile(function (i, item, collection)
+        it("should skips items that match a predicate function and return the others", function ()
         {
-            return (item.name === "test");
-        });
+            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-        expect(result).toEqual([].asEnumerable());
+            var result = testArray.skipWhile(function (i, item, collection)
+            {
+                return (item.name === "test");
+            });
+
+            expect(result).toEqual(new Enumerable([]));
+        });
     });
-});
 
-describe("skip while  -- empty collection", function ()
-{
-    it("return empty enumerable when used on empty collection", function ()
+    describe("when an enumerable object is empty", function ()
     {
-        var testArray = [];
-
-        var result = testArray.asEnumerable().skipWhile(function (i, item, collection)
+        it("should return an empty enumerable", function ()
         {
-            return (item.name === "test");
-        });
+            var testArray = new Enumerable([]);
 
-        expect(result).toEqual(testArray.asEnumerable());
+            var result = testArray.skipWhile(function (i, item, collection)
+            {
+                return (item.name === "test");
+            });
+
+            expect(result).toEqual(new Enumerable([]));
+        });
     });
 });

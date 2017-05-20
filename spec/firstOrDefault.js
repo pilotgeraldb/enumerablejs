@@ -1,59 +1,71 @@
-﻿describe("firstOrDefault -- first value in single item collection", function ()
+﻿describe("firstOrDefault", function ()
 {
-    it("returns first value in collection of length 1", function ()
+    describe("when an enumerable object contains only 1 item", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }];
+        it("should return that item", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-        var result = testArray.asEnumerable().firstOrDefault();
+            var result = testArray.firstOrDefault();
 
-        expect(result).toEqual({ name: 'test', id: 1 });
+            expect(result).toEqual({ name: 'test', id: 1 });
+        });
+    });
+
+    describe("when an enumerable object has 3 items", function ()
+    {
+        it("should return the first item", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+
+            var result = testArray.firstOrDefault();
+
+            expect(result).toEqual({ name: 'test', id: 1 });
+        });
+    });
+
+    describe("when an enumerable object is empty", function ()
+    {
+        it("should return null", function ()
+        {
+            var testArray = new Enumerable([]);
+
+            var result = testArray.firstOrDefault();
+
+            expect(result).toEqual(null);
+        });
+    });
+
+    describe("when there is a default function passed in and the enumerable object is empty", function ()
+    {
+        it("should return the value of the default function", function ()
+        {
+            var testArray = new Enumerable([]);
+
+            var result = testArray.firstOrDefault(function () { return 3; });
+
+            expect(result).toEqual(3);
+        });
+    });
+
+    describe("when the default value is a constant and the enumerable object is empty", function ()
+    {
+        it("should return that constant", function ()
+        {
+            var testArray = new Enumerable([]);
+
+            var result = testArray.firstOrDefault(3);
+
+            expect(result).toEqual(3);
+        });
     });
 });
 
-describe("firstOrDefault -- first value in multi item collection", function ()
-{
-    it("returns first value in collection of length 3", function ()
-    {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
 
-        var result = testArray.asEnumerable().firstOrDefault();
 
-        expect(result).toEqual({ name: 'test', id: 1 });
-    });
-});
 
-describe("firstOrDefault -- empty collection", function ()
-{
-    it("returns null when the collection is empty", function ()
-    {
-        var testArray = [];
 
-        var result = testArray.asEnumerable().firstOrDefault();
-        
-        expect(result).toEqual(null);
-    });
-});
 
-describe("firstOrDefault -- returns default from function", function ()
-{
-    it("returns the return value of the specified function when the collection is empty", function ()
-    {
-        var testArray = [];
 
-        var result = testArray.asEnumerable().firstOrDefault(function () { return 3; });
-            
-        expect(result).toEqual(3);
-    });
-});
 
-describe("firstOrDefault -- returns default from constant", function ()
-{
-    it("returns the specified constant when the collection is empty", function ()
-    {
-        var testArray = [];
 
-        var result = testArray.asEnumerable().firstOrDefault(3);
-            
-        expect(result).toEqual(3);
-    });
-});

@@ -1,53 +1,56 @@
-﻿describe("single -- single item", function ()
+﻿describe("single", function ()
 {
-    it("returns only a single item from a collection of 1", function ()
+    describe("when an enumerable object contains only 1 item", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }];
+        it("should return that item", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-        var result = testArray.asEnumerable().single();
+            var result = testArray.single();
 
-        expect(result).toEqual({ name: 'test', id: 1 });
+            expect(result).toEqual({ name: 'test', id: 1 });
+        });
     });
-});
 
-describe("single -- multi item collection", function ()
-{
-    it("throws an exception for collection of length 3", function ()
+    describe("when an enumerable object has 3 items", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+        it("should throw an exception", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        var result = false;
-        
-        try
-        {
-            testArray.asEnumerable().single();
-        }
-        catch(ex)
-        {
-            result = true;
-        }
-            
-        expect(result).toEqual(true);
+            var result = false;
+
+            try
+            {
+                testArray.single();
+            }
+            catch (ex)
+            {
+                result = true;
+            }
+
+            expect(result).toEqual(true);
+        });
     });
-});
 
-describe("single -- empty collection", function ()
-{
-    it("throws exception when the collection is empty", function ()
+    describe("when an enumerable object is empty", function ()
     {
-        var testArray = [];
+        it("should throw an exception", function ()
+        {
+            var testArray = new Enumerable([]);
 
-        var result = false;
-        
-        try
-        {
-            testArray.asEnumerable().single();
-        }
-        catch(ex)
-        {
-            result = true;
-        }
-            
-        expect(result).toEqual(true);
+            var result = false;
+
+            try
+            {
+                testArray.single();
+            }
+            catch (ex)
+            {
+                result = true;
+            }
+
+            expect(result).toEqual(true);
+        });
     });
 });

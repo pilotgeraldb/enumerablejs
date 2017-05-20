@@ -130,8 +130,6 @@ var Enumerable = (function ()
         {
             throw "sequence contains no elements"
         }
-
-        return null;
     };
 
     _enumerable.prototype.firstOrDefault = function (fn)

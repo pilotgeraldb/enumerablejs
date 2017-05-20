@@ -1,23 +1,28 @@
-﻿describe("maximum -- correct maximum value", function ()
+﻿describe("maximum", function ()
 {
-    it("returns the maximum integer value within an array", function ()
+    describe("when an enumerable object contains integers and objects", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, 1, 2, null];
+        it("should return the maximum integer value within an enumerable object", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, 1, 2, null]);
 
-        var result = testArray.asEnumerable().maximum();
+            var result = testArray.maximum();
 
-        expect(result).toEqual(2);
+            expect(result).toEqual(2);
+        });
+    });
+
+    describe("when an enumerable object is empty", function ()
+    {
+        it("should return null", function ()
+        {
+            var testArray = new Enumerable([]);
+
+            var result = testArray.maximum();
+
+            expect(result).toEqual(null);
+        });
     });
 });
 
-describe("maximum -- empty collection", function ()
-{
-    it("returns null on empty collections", function ()
-    {
-        var testArray = [];
 
-        var result = testArray.asEnumerable().maximum();
-
-        expect(result).toEqual(null);
-    });
-});

@@ -1,35 +1,38 @@
-﻿describe("select -- multiple items in collection", function ()
+﻿describe("select", function ()
 {
-    it("returns selected fields when there are multiple items in collection", function ()
+    describe("when an enumerable object has 3 items", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+        it("should return 3 objects containing only the selected fields", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        var result = testArray.asEnumerable().select(["name"]);
+            var result = testArray.select(["name"]);
 
-        expect(result).toEqual([{ name: "test" }, { name: "1234" }, { name: "5678" }].asEnumerable());
+            expect(result).toEqual(new Enumerable([{ name: "test" }, { name: "1234" }, { name: "5678" }]));
+        });
     });
-});
 
-describe("select -- single item in collection", function ()
-{
-    it("returns selected fields when there is only one item in the collection", function ()
+    describe("when an enumerable object contains only 1 item", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }];
+        it("should return 1 object containing only the selected fields", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-        var result = testArray.asEnumerable().select(["name"]);
+            var result = testArray.select(["name"]);
 
-        expect(result).toEqual([{ name: "test" }].asEnumerable());
+            expect(result).toEqual(new Enumerable([{ name: "test" }]));
+        });
     });
-});
 
-describe("select -- empty collection", function ()
-{
-    it("returns null when there are no items in collection", function ()
+    describe("when an enumerable object is empty", function ()
     {
-        var testArray = [];
+        it("should return an empty enumerable object", function ()
+        {
+            var testArray = new Enumerable([]);
 
-        var result = testArray.asEnumerable().select(["name"]);
+            var result = testArray.select(["name"]);
 
-        expect(result).toEqual([].asEnumerable());
+            expect(result).toEqual(new Enumerable([]));
+        });
     });
 });
