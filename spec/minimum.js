@@ -1,23 +1,29 @@
-﻿describe("minimum -- correct minimum value", function ()
+﻿describe("minimum", function ()
 {
-    it("returns the maximum integer value within an array", function ()
+    describe("when an enumerable object contains integers and objects", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, 1, 2, null];
+        it("should return the minimum integer value within an enumerable object", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, 1, 2, null]);
 
-        var result = testArray.asEnumerable().minimum();
+            var result = testArray.minimum();
 
-        expect(result).toEqual(1);
+            expect(result).toEqual(1);
+        });
+    });
+
+    describe("when an enumerable object is empty", function ()
+    {
+        it("should return null", function ()
+        {
+            var testArray = new Enumerable([]);
+
+            var result = testArray.minimum();
+
+            expect(result).toEqual(null);
+        });
     });
 });
 
-describe("minimum -- empty collection", function ()
-{
-    it("returns null on empty collections", function ()
-    {
-        var testArray = [];
 
-        var result = testArray.asEnumerable().minimum();
 
-        expect(result).toEqual(null);
-    });
-});

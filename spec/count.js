@@ -1,35 +1,38 @@
-﻿describe("count -- single item collection", function ()
+﻿describe("count", function ()
 {
-    it("returns 1", function ()
+    describe("when an enumerable object has 1 item", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }];
+        it("should return the number 1", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-        var result = testArray.asEnumerable().count();
+            var result = testArray.count();
 
-        expect(result).toEqual(1);
+            expect(result).toEqual(1);
+        });
     });
-});
 
-describe("count -- multi item collection", function ()
-{
-    it("returns 3", function ()
+    describe("when an enumerable object has 3 items", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+        it("should return 3", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        var result = testArray.asEnumerable().count();
+            var result = testArray.count();
 
-        expect(result).toEqual(3);
+            expect(result).toEqual(3);
+        });
     });
-});
 
-describe("count -- empty collection", function ()
-{
-    it("returns 0", function ()
+    describe("when an enumerable object is empty", function ()
     {
-        var testArray = [];
+        it("should return 0", function ()
+        {
+            var testArray = new Enumerable([]);
 
-        var result = testArray.asEnumerable().count();
+            var result = testArray.count();
 
-        expect(result).toEqual(0);
+            expect(result).toEqual(0);
+        });
     });
 });

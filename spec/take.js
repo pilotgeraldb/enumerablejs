@@ -1,35 +1,38 @@
-﻿describe("take -- multiple items in collection", function ()
+﻿describe("take", function ()
 {
-    it("only takes specified number of items from the beginning of the collection", function ()
+    describe("when an enumerable object has 3 items", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+        it("should only take specified number of items from the beginning of the collection", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        var result = testArray.asEnumerable().take(2);
+            var result = testArray.take(2);
 
-        expect(result).toEqual([{ name: 'test', id: 1 }, { name: '1234', id: 2 }].asEnumerable());
+            expect(result).toEqual(new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }]));
+        });
     });
-});
 
-describe("take -- empty collection", function ()
-{
-    it("return empty enumerable when used on empty collection, regardless of count specified", function ()
+    describe("when an enumerable object is empty", function ()
     {
-        var testArray = [];
+        it("should return empty enumerable", function ()
+        {
+            var testArray = new Enumerable([]);
 
-        var result = testArray.asEnumerable().take(2);
+            var result = testArray.take(2);
 
-        expect(result).toEqual([].asEnumerable());
+            expect(result).toEqual(new Enumerable([]));
+        });
     });
-});
 
-describe("take -- count greater than collection", function ()
-{
-    it("return current enumerable when used on a collection with a length greater than the specified count", function ()
+    describe("when count is a greater integer than the length of the enumerable object", function ()
     {
-        var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+        it("should return current enumerable", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-        var result = testArray.asEnumerable().take(50);
+            var result = testArray.take(50);
 
-        expect(result).toEqual(testArray.asEnumerable());
+            expect(result).toEqual(testArray);
+        });
     });
 });
