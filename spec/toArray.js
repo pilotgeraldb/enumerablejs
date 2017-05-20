@@ -12,6 +12,7 @@
         });
     });
 
+
     describe("when an enumerable object has 1 item", function ()
     {
         it("should return an array containing that only that item", function ()
@@ -23,6 +24,7 @@
             expect(result).toEqual([{ name: 'test', id: 1 }]);
         });
     });
+
 
     describe("when an enumerable object has 3 items", function ()
     {
