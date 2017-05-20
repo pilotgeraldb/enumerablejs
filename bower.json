@@ -1,0 +1,18 @@
+{
+  "name": "enumerable-js",
+  "homepage": "https://github.com/ralphy15/enumerable-js",
+  "authors": [
+    "Gerald Burkholder <geraldeburkholder@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
