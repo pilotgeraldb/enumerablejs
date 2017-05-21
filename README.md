@@ -39,12 +39,12 @@ var result = arr.asEnumerable().count();
 ## first
 ``` javascript
 var arr = [];
-var result = arr.asEnumerable().count();
+var result = arr.asEnumerable().first();
 ```
 ## firstOrDefault
 ``` javascript
 var arr = [];
-var result = arr.asEnumerable().first();
+var result = arr.asEnumerable().firstOrDefault();
 ```
 
 ## last
