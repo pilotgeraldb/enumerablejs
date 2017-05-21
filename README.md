@@ -2,11 +2,11 @@
 a JavaScript library that provides linq functions on native JavaScript arrays
 
 ```
-npm install asenumerable
+$ bower install enumerablejs
 ```
 
 ```
-bower install enumerablejs
+$ npm install asenumerable
 ```
 
 ## where
