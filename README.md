@@ -1,6 +1,14 @@
 # enumerablejs
 a JavaScript library that provides linq functions on native JavaScript arrays
 
+```
+npm install asenumerable
+```
+
+```
+bower install enumerablejs
+```
+
 ## where
 
 ``` javascript
