@@ -1,11 +1,17 @@
-# enumerablejs
+# enumerablejs 
+
 a JavaScript library that provides linq functions on native JavaScript arrays
 
-```
+> this project is still under development and is not completely finished.
+
+## install with bower
+
+```bash
 $ bower install enumerablejs
 ```
+## install with npm
 
-```
+```bash
 $ npm install asenumerable
 ```
 
