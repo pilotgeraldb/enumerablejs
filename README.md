@@ -30,6 +30,30 @@ var arr = [];
 var result = arr.asEnumerable().select(["name"]);
 ```
 
+## orderBy
+orderBy accepts two parameters `propertyName` and `fn`
+
+`propertyName` is the property by which to order the elements in the enumerable by. propertyName can be null or undefined.
+
+`fn` is a function applied to each element before performing the order operation. fn can be null or undefined.
+
+``` javascript
+var arr = [];
+var result = arr.asEnumerable().orderBy();
+```
+
+## orderByDescending
+orderByDescending accepts two parameters `propertyName` and `fn`
+
+`propertyName` is the property by which to order the elements in the enumerable by. propertyName can be null or undefined.
+
+`fn` is a function applied to each element before performing the order operation. fn can be null or undefined.
+
+``` javascript
+var arr = [];
+var result = arr.asEnumerable().orderByDescending();
+```
+
 ## any
 ``` javascript
 var arr = [];
