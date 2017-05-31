@@ -29,14 +29,14 @@
         {
             function _enumerable(_array)
             {
-                if(_array)
+                if (_array)
                 {
                     this.collection = _array;
                 }
                 else
                 {
                     this.collection = [];
-                }                
+                }
             };
 
             _enumerable.prototype.toArray = function ()
@@ -477,13 +477,32 @@
                 {
                     result = tempArr.sort(function (a, b)
                     {
-                        if(hasProperty)
+                        if (hasProperty)
                         {
                             return new Date(a[property]) - new Date(b[property]);
                         }
                         else
                         {
                             return new Date(a) - new Date(b);
+                        }
+                    });
+                }
+                else if (itemType == 'boolean')
+                {
+                    result = tempArr.sort(function (x, y)
+                    {
+                        // true values first
+                        if (x === y) 
+                        {
+                            return 0;
+                        }
+                        else if (x)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return -1;
                         }
                     });
                 }
@@ -601,13 +620,32 @@
                 {
                     result = tempArr.sort(function (a, b)
                     {
-                        if(hasProperty)
+                        if (hasProperty)
                         {
                             return new Date(b[property]) - new Date(a[property]);
                         }
                         else
                         {
                             return new Date(b) - new Date(a);
+                        }
+                    });
+                }
+                else if (itemType == 'boolean')
+                {
+                    result = tempArr.sort(function (x, y)
+                    {
+                        // true values first
+                        if (x === y) 
+                        {
+                            return 0;
+                        }
+                        else if (x)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            return 1;
                         }
                     });
                 }

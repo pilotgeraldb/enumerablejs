@@ -124,6 +124,18 @@ describe("orderBy", function ()
         });
     });
 
+    describe("when an enumerable object contains 3 booleans and no arguments are passed", function ()
+    {
+        it("should return 3 booleans sorted in ascending order", function ()
+        {
+            var testArray = new Enumerable([true, false, true]);
+
+            var result = testArray.orderBy();
+
+            expect(result).toEqual(new Enumerable([false, true, true]));
+        });
+    });
+
     describe("when an enumerable object contains 3 objects and a property argument is passed", function ()
     {
         it("should return 3 objects sorted in ascending order by the specified property", function ()
