@@ -48,6 +48,18 @@ describe("orderByDescending", function ()
         });
     });
 
+    describe("when an enumerable object contains 3 datetime objects and no arguments are passed", function ()
+    {
+        it("should return 3 datetime objects sorted in descending order", function ()
+        {
+            var testArray = new Enumerable([new Date(2013,00,01), new Date(2014,00,01), new Date(2015,00,01)]);
+
+            var result = testArray.orderByDescending();
+
+            expect(result).toEqual(new Enumerable([new Date(2015,00,01), new Date(2014,00,01), new Date(2013,00,01)]));
+        });
+    });
+
     describe("when an enumerable object contains 3 strings and no property argument is passed but a function is passed", function ()
     {
         it("should return 3 strings correctly altered by the function parameter, then sorted in descending order", function ()
@@ -109,6 +121,18 @@ describe("orderByDescending", function ()
             var result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]));
+        });
+    });
+
+    describe("when an enumerable object contains 3 objects that have datetime properties and a property argument is passed", function ()
+    {
+        it("should return 3 objects sorted in descending order by the specified datetime property", function ()
+        {
+            var testArray = new Enumerable([{ name: "test2", value: 456, d: new Date(2013,00,01) }, { name: "test1", value: 123, d: new Date(2014,00,01) }, { name: "test3", value: 789, d: new Date(2015,00,01) }]);
+
+            var result = testArray.orderByDescending("d");
+
+            expect(result).toEqual(new Enumerable([{ name: "test3", value: 789, d: new Date(2015,00,01) }, { name: "test1", value: 123, d: new Date(2014,00,01) }, { name: "test2", value: 456, d: new Date(2013,00,01) }]));
         });
     });
 

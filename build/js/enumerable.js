@@ -397,11 +397,25 @@
 
                 if (hasProperty)
                 {
-                    itemType = (typeof tempArr[0][property]);
+                    if (Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+                    {
+                        itemType = 'date';
+                    }
+                    else
+                    {
+                        itemType = (typeof tempArr[0][property]);
+                    }
                 }
                 else
                 {
-                    itemType = (typeof tempArr[0]);
+                    if (Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+                    {
+                        itemType = 'date';
+                    }
+                    else
+                    {
+                        itemType = (typeof tempArr[0]);
+                    }
                 }
 
                 if (hasFn)
@@ -411,7 +425,7 @@
                     {
                         var v = fn(this.collection[i]);
 
-                        if(v)
+                        if (v)
                         {
                             tempArr.push(v);
                         }
@@ -449,6 +463,20 @@
                         else
                         {
                             return a - b;
+                        }
+                    });
+                }
+                else if (itemType == 'date')
+                {
+                    result = tempArr.sort(function (a, b)
+                    {
+                        if(hasProperty)
+                        {
+                            return new Date(a[property]) - new Date(b[property]);
+                        }
+                        else
+                        {
+                            return new Date(a) - new Date(b);
                         }
                     });
                 }
@@ -493,11 +521,25 @@
 
                 if (hasProperty)
                 {
-                    itemType = (typeof tempArr[0][property]);
+                    if (Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+                    {
+                        itemType = 'date';
+                    }
+                    else
+                    {
+                        itemType = (typeof tempArr[0][property]);
+                    }
                 }
                 else
                 {
-                    itemType = (typeof tempArr[0]);
+                    if (Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+                    {
+                        itemType = 'date';
+                    }
+                    else
+                    {
+                        itemType = (typeof tempArr[0]);
+                    }
                 }
 
                 if (hasFn)
@@ -507,7 +549,7 @@
                     {
                         var v = fn(this.collection[i]);
 
-                        if(v)
+                        if (v)
                         {
                             tempArr.push(v);
                         }
@@ -545,6 +587,20 @@
                         else
                         {
                             return b - a;
+                        }
+                    });
+                }
+                else if (itemType == 'date')
+                {
+                    result = tempArr.sort(function (a, b)
+                    {
+                        if(hasProperty)
+                        {
+                            return new Date(b[property]) - new Date(a[property]);
+                        }
+                        else
+                        {
+                            return new Date(b) - new Date(a);
                         }
                     });
                 }

@@ -48,6 +48,18 @@ describe("orderBy", function ()
         });
     });
 
+    describe("when an enumerable object contains 3 datetime objects and no arguments are passed", function ()
+    {
+        it("should return 3 datetime objects sorted in ascending order", function ()
+        {
+            var testArray = new Enumerable([new Date(2015,00,01), new Date(2014,00,01), new Date(2013,00,01)]);
+
+            var result = testArray.orderBy();
+
+            expect(result).toEqual(new Enumerable([new Date(2013,00,01), new Date(2014,00,01), new Date(2015,00,01)]));
+        });
+    });
+
     describe("when an enumerable object contains 3 strings and no property argument is passed but a function is passed", function ()
     {
         it("should return 3 strings correctly altered by the function parameter, then sorted in ascending order", function ()
