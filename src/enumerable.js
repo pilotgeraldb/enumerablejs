@@ -29,7 +29,14 @@
         {
             function _enumerable(_array)
             {
-                this.collection = _array;
+                if(_array)
+                {
+                    this.collection = _array;
+                }
+                else
+                {
+                    this.collection = [];
+                }                
             };
 
             _enumerable.prototype.toArray = function ()
