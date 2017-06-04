@@ -18,6 +18,12 @@ $ bower install enumerablejs
 $ npm install asenumerable
 ```
 
+## test
+
+```bash
+$ npm test
+```
+
 ## where
 
 ``` javascript

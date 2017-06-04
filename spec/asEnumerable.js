@@ -1,4 +1,6 @@
-﻿describe("asEnumerable", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("asEnumerable", function ()
 {
     describe("when used on an empty array", function ()
     {

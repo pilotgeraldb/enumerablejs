@@ -1,4 +1,6 @@
-﻿describe("minimum", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("minimum", function ()
 {
     describe("when an enumerable object contains integers and objects", function ()
     {

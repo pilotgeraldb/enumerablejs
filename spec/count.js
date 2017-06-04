@@ -1,4 +1,6 @@
-﻿describe("count", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("count", function ()
 {
     describe("when an enumerable object has 1 item", function ()
     {

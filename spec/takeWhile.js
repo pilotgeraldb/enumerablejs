@@ -1,4 +1,6 @@
-﻿describe("take while", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("take while", function ()
 {
     describe("when an enumerable object has 3 items", function ()
     {

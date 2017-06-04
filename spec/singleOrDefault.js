@@ -1,4 +1,6 @@
-﻿describe("singleOrDefault", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("singleOrDefault", function ()
 {
     describe("when an enumerable object contains only 1 item", function ()
     {

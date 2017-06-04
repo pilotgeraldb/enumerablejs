@@ -1,22 +1,19 @@
 (function (root, factory)
 {
-    if (typeof exports === 'object') 
+    if (typeof define === 'function' && define.amd)
     {
-        // CommonJS
-        factory(exports);
-    }
-    else if (typeof define === 'function' && define.amd) 
+        define([], factory);
+    } 
+    else if (typeof module === 'object' && module.exports)
     {
-        // AMD. Register as an anonymous module.
-        define(['exports'], factory);
-    }
-    else 
+        module.exports = factory();
+    } 
+    else
     {
-        // Browser globals
-        factory(root);
+        root.Enumerable = factory();
     }
 }
-    (this, function (exports) 
+    (this, function () 
     {
         Array.prototype.asEnumerable = function ()
         {
@@ -665,8 +662,6 @@
 
             return _enumerable;
         }());
-
-        exports.Enumerable = Enumerable;
 
         return Enumerable;
     }));

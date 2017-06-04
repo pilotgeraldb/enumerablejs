@@ -1,3 +1,5 @@
+var Enumerable = require("../build/js/enumerable.js");
+
 describe("orderBy", function ()
 {
     describe("when an enumerable object contains only 1 string and no arguments are passed", function ()

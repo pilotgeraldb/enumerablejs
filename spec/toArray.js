@@ -1,4 +1,6 @@
-﻿describe("toArray", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("toArray", function ()
 {
     describe("when an enumerable object is empty", function ()
     {
