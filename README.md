@@ -1,3 +1,6 @@
+[![Bower version](https://badge.fury.io/bo/enumerablejs.svg)](https://badge.fury.io/bo/enumerablejs)
+[![npm version](https://badge.fury.io/js/asenumerable.svg)](https://badge.fury.io/js/asenumerable)
+
 # enumerablejs 
 
 a JavaScript library that provides linq functions on native JavaScript arrays
