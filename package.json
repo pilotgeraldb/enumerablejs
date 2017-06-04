@@ -3,16 +3,14 @@
   "version": "1.0.5",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
   "main": "gulpfile.js",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
     "del": "^2.2.2",
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
-    "jasmine-core": "^2.4.1"
+    "jasmine-core": "^2.6.2"
   },
   "scripts": {
     "test": "jasmine"
