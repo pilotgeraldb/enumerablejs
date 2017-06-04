@@ -1,4 +1,6 @@
-﻿describe("first", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("first", function ()
 {
     describe("when an enumerable object contains only 1 item", function ()
     {

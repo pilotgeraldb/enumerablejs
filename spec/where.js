@@ -1,4 +1,6 @@
-﻿describe("where", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("where", function ()
 {
     describe("when an enumerable object conatins 3 items", function ()
     {

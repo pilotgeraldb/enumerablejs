@@ -1,4 +1,6 @@
-﻿describe("take", function ()
+﻿var Enumerable = require("../build/js/enumerable.js");
+
+describe("take", function ()
 {
     describe("when an enumerable object has 3 items", function ()
     {
