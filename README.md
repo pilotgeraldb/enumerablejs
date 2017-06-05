@@ -8,22 +8,21 @@ a JavaScript library that provides linq functions on native JavaScript arrays
 
 > this project is still under development and is not completely finished.
 
+## install
+
+```bash
 ## install with bower
-
-```bash
 $ bower install enumerablejs
-```
-## install with npm
 
-```bash
+## install with npm
 $ npm install asenumerable
 ```
-
 ## test
 
 ```bash
 $ npm test
 ```
+# Methods
 
 ## where
 
