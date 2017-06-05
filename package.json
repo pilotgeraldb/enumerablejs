@@ -1,6 +1,6 @@
 {
   "name": "asenumerable",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
   "main": "gulpfile.js",
   "dependencies": {},
