@@ -27,6 +27,10 @@ The main type for enumerablejs. Exposes linq style methods for use on javascript
 ```javascript
 var arr = [{ name:"def", value: 1, description: "test object 2" }];
 
+//the most common way to use enumerable js is to call asEnumerable() on an array
+//which returns an instance of an Enumerable object
+arr.asEnumerable();
+
 //initialize a new enumerable
 var a = new Enumerable();
 
