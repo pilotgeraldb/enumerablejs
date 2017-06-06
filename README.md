@@ -22,6 +22,34 @@ $ npm install asenumerable
 On any native javascript array, simply call asEnumerable() followed by subsequent calls to any
 of the methods outlined in this documentation.
 
+## Enumerable
+The main type for enumerablejs. Exposes linq style methods for use on javascript arrays.
+```javascript
+var arr = [{ name:"def", value: 1, description: "test object 2" }];
+
+//initialize a new enumerable
+var a = new Enumerable();
+
+//or simply initialize an enumerable with an array
+var b = new Enumerable(arr);
+
+//enumerable methods are chainable
+var c = b.take(1).count(); //c = 1
+```
+
+## toArray
+converts the enumerable object back to a plain javascript array
+
+```javascript
+var arr = [{ name:"def", value: 1, description: "test object 2" }];
+
+//create a new enumerable from the array
+var b = new Enumerable(arr);
+
+//convert b to a plain javascript array
+var c = b.toArray();
+```
+
 ## where
 Filters a sequence of values based on a predicate.
 
@@ -29,28 +57,25 @@ Filters a sequence of values based on a predicate.
 | --- | --- |
 | fn  | A function to test each element for a condition. |
 
-consider the following array.
 ``` javascript
+
+//consider the following array.
 var arr = [
 { name:"abc", value: 0, description: "test object 1" }, 
 { name:"def", value: 1, description: "test object 2" }];
-```
-#### filter the array where name is equal to "def"
 
-``` javascript
+
+//filter the array where name is equal to "def"
 var arr = [];
 var result = arr.asEnumerable().where(function (i, item, collection)
 {
     return item.name === "def";
 });
-```
 
-the result will be an enumerable containing the following array.
 
-```javascript
+//the result will be an enumerable containing the following array
 [{ name:"def", value: 1, description: "test object 2" }]
 ```
-
 
 ## select
 Projects each element of a sequence into a new form.
@@ -59,29 +84,27 @@ Projects each element of a sequence into a new form.
 | --- | --- |
 | properties  | A string array of property names to select. |
 
-consider the following array.
 ``` javascript
+
+//consider the following array.
 var arr = [
 { name:"abc", value: 0, description: "test object 1" }, 
 { name:"def", value: 1, description: "test object 2" }];
-```
 
-#### select a single property.
-``` javascript
+
+//select a single property.
 var result = arr.asEnumerable().select(["name"]);
-```
-the result will be an enumerable containing the following array.
-```javascript
+
+
+//the result will be an enumerable containing the following array.
 [{ name: "abc" }, { name: "def" }]
-```
 
-#### select multiple properties.
-```javascript
+
+//select multiple properties.
 var result = arr.asEnumerable().select(["name", "description"]);
-```
 
-the result will be an enumerable containing the following array.
-```javascript
+
+//the result will be an enumerable containing the following array.
 [{ name: "abc", description: "test object 1" }, { name: "def", description: "test object 2" }]
 ```
 
@@ -93,30 +116,24 @@ Sorts the elements of a sequence in ascending order according to a key.
 | propertyName  | the key by which to order the elements in the enumerable by. propertyName should not be null or undefined. |
 | fn  | a function applied to each element before performing the order operation. fn can be null or undefined. |
 
-consider the following array.
-
 ``` javascript
+
+//consider the following array
 var arr = [
 { name:"def", value: 0, description: "test object 1" }, 
 { name:"abc", value: 1, description: "test object 2" }];
-```
 
-#### order the items by name
 
-``` javascript
+//order the items by name
 var result = arr.asEnumerable().orderBy("name");
-```
 
-the result will be an enumerable containing the following array.
 
-``` javascript
+//the result will be an enumerable containing the following array.
 [{ name:"abc", value: 1, description: "test object 2" }, 
 { name:"def", value: 0, description: "test object 1" }];
-```
 
-#### using a transform function on each element while sorting by name
 
-``` javascript
+//or you can use a transform function on each element while sorting by name
 var result = arr.asEnumerable().orderBy("name", function(item) { return item.value + 1; });
 ```
 
@@ -128,22 +145,24 @@ Sorts an array of objects in a sequence in descending order according to a key.
 | propertyName  | the key by which to order the elements in the enumerable by. propertyName should not be null or undefined. |
 | fn  | a function applied to each element before performing the order operation. fn can be null or undefined. |
 
-consider the following array.
 ```javascript
+
+//consider the following array
 var arr = [
 { name:"def", value: 0, description: "test object 1" }, 
 { name:"abc", value: 1, description: "test object 2" }];
-```
 
-#### order by value descending
 
-``` javascript
+//order by value descending
 var result = arr.asEnumerable().orderByDescending("value");
-```
-the result will be an enumerable containing the following array. 
-```javascript
+
+
+//the result will be an enumerable containing the following array. 
 [{ name:"abc", value: 1, description: "test object 2" },
 { name:"def", value: 0, description: "test object 1" }]
+
+//or you can use a transform function on each element while sorting by value
+var result = arr.asEnumerable().orderByDescending("value", function(item) { return item.value + 1; });
 ```
 
 ## any
