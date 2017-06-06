@@ -8,7 +8,7 @@ a JavaScript library that provides linq functions on native JavaScript arrays
 
 > this project is still under development and is not completely finished.
 
-## install
+## Getting Started
 
 ```bash
 ## install with bower
@@ -17,11 +17,10 @@ $ bower install enumerablejs
 ## install with npm
 $ npm install asenumerable
 ```
-## test
 
-```bash
-$ npm test
-```
+## How to use
+On any native javascript array, simply call asEnumerable() followed by subsequent calls to any
+of the methods outlined in this documentation.
 
 ## where
 Filters a sequence of values based on a predicate.
