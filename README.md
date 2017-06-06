@@ -22,7 +22,6 @@ $ npm install asenumerable
 ```bash
 $ npm test
 ```
-# Methods
 
 ## where
 Filters a sequence of values based on a predicate.
