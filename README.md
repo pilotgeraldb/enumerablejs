@@ -25,42 +25,127 @@ $ npm test
 # Methods
 
 ## where
+Filters a sequence of values based on a predicate.
+
+|Parameter | Description |
+| --- | --- |
+| fn  | A function to test each element for a condition. |
+
+consider the following array.
+``` javascript
+var arr = [
+{ name:"abc", value: 0, description: "test object 1" }, 
+{ name:"def", value: 1, description: "test object 2" }];
+```
+#### filter the array where name is equal to "def"
 
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().where(function (i, item, collection)
 {
-    return item.name === "123";
+    return item.name === "def";
 });
 ```
+
+the result will be an enumerable containing the following array.
+
+```javascript
+[{ name:"def", value: 1, description: "test object 2" }]
+```
+
+
 ## select
+Projects each element of a sequence into a new form.
+
+|Parameter | Description |
+| --- | --- |
+| properties  | A string array of property names to select. |
+
+consider the following array.
 ``` javascript
-var arr = [];
+var arr = [
+{ name:"abc", value: 0, description: "test object 1" }, 
+{ name:"def", value: 1, description: "test object 2" }];
+```
+
+#### select a single property.
+``` javascript
 var result = arr.asEnumerable().select(["name"]);
+```
+the result will be an enumerable containing the following array.
+```javascript
+[{ name: "abc" }, { name: "def" }]
+```
+
+#### select multiple properties.
+```javascript
+var result = arr.asEnumerable().select(["name", "description"]);
+```
+
+the result will be an enumerable containing the following array.
+```javascript
+[{ name: "abc", description: "test object 1" }, { name: "def", description: "test object 2" }]
 ```
 
 ## orderBy
-orderBy accepts two parameters `propertyName` and `fn`
+Sorts the elements of a sequence in ascending order according to a key.
 
-`propertyName` is the property by which to order the elements in the enumerable by. propertyName can be null or undefined.
+|Parameter | Description |
+| --- | --- |
+| propertyName  | the key by which to order the elements in the enumerable by. propertyName should not be null or undefined. |
+| fn  | a function applied to each element before performing the order operation. fn can be null or undefined. |
 
-`fn` is a function applied to each element before performing the order operation. fn can be null or undefined.
+consider the following array.
 
 ``` javascript
-var arr = [];
-var result = arr.asEnumerable().orderBy();
+var arr = [
+{ name:"def", value: 0, description: "test object 1" }, 
+{ name:"abc", value: 1, description: "test object 2" }];
+```
+
+#### order the items by name
+
+``` javascript
+var result = arr.asEnumerable().orderBy("name");
+```
+
+the result will be an enumerable containing the following array.
+
+``` javascript
+[{ name:"abc", value: 1, description: "test object 2" }, 
+{ name:"def", value: 0, description: "test object 1" }];
+```
+
+#### using a transform function on each element while sorting by name
+
+``` javascript
+var result = arr.asEnumerable().orderBy("name", function(item) { return item.value + 1; });
 ```
 
 ## orderByDescending
-orderByDescending accepts two parameters `propertyName` and `fn`
+Sorts an array of objects in a sequence in descending order according to a key.
 
-`propertyName` is the property by which to order the elements in the enumerable by. propertyName can be null or undefined.
+|Parameter | Description |
+| --- | --- |
+| propertyName  | the key by which to order the elements in the enumerable by. propertyName should not be null or undefined. |
+| fn  | a function applied to each element before performing the order operation. fn can be null or undefined. |
 
-`fn` is a function applied to each element before performing the order operation. fn can be null or undefined.
+consider the following array.
+```javascript
+var arr = [
+{ name:"def", value: 0, description: "test object 1" }, 
+{ name:"abc", value: 1, description: "test object 2" }];
+```
+
+#### order by value descending
 
 ``` javascript
-var arr = [];
-var result = arr.asEnumerable().orderByDescending();
+var result = arr.asEnumerable().orderByDescending("value");
+```
+the result will be an enumerable containing the following array. 
+```javascript
+[{ name:"abc", value: 1, description: "test object 2" },
+{ name:"def", value: 0, description: "test object 1" }]
 ```
 
 ## any
