@@ -184,6 +184,7 @@ var result = arr.asEnumerable().any();
 
 ## count
 Returns the number of elements in a sequence.
+
 |Parameter | Description |
 | --- | --- |
 | fn  | A function to test each element for a condition. |
