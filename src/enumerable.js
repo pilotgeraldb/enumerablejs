@@ -1,32 +1,32 @@
-﻿(function (root, factory)
+﻿(function(root, factory)
 {
-    if (typeof define === 'function' && define.amd)
+    if(typeof define === 'function' && define.amd)
     {
         define([], factory);
-    } 
-    else if (typeof module === 'object' && module.exports)
+    }
+    else if(typeof module === 'object' && module.exports)
     {
         module.exports = factory();
-    } 
+    }
     else
     {
         root.Enumerable = factory();
     }
 }
-    (this, function () 
+    (this, function() 
     {
-        Array.prototype.asEnumerable = function ()
+        Array.prototype.asEnumerable = function()
         {
             var e = new Enumerable(this);
 
             return e;
         };
 
-        var Enumerable = (function ()
+        var Enumerable = (function()
         {
             function _enumerable(_array)
             {
-                if (_array)
+                if(_array)
                 {
                     this.collection = _array;
                 }
@@ -36,20 +36,20 @@
                 }
             };
 
-            _enumerable.prototype.toArray = function ()
+            _enumerable.prototype.toArray = function()
             {
                 return this.collection;
             };
 
-            _enumerable.prototype.where = function (fn)
+            _enumerable.prototype.where = function(fn)
             {
                 var results = [];
 
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
                     var item = this.collection[i];
 
-                    if (fn !== null && fn !== undefined && fn(i, item, this.collection))
+                    if(fn !== null && fn !== undefined && fn(i, item, this.collection))
                     {
                         results.push(item);
                     }
@@ -58,23 +58,23 @@
                 return results.asEnumerable();
             };
 
-            _enumerable.prototype.select = function (obj)
+            _enumerable.prototype.select = function(obj)
             {
                 var results = [];
 
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
                     var item = this.collection[i];
 
-                    if (obj !== null && obj !== undefined && obj.length > 0)
+                    if(obj !== null && obj !== undefined && obj.length > 0)
                     {
                         var _temp = {};
-                        for (var x = 0; x < obj.length; x++)
+                        for(var x = 0; x < obj.length; x++)
                         {
                             var prop = obj[x];
-                            for (var p in item)
+                            for(var p in item)
                             {
-                                if (p === prop)
+                                if(p === prop)
                                 {
                                     _temp[prop] = item[p];
                                 }
@@ -91,7 +91,7 @@
                 return results.asEnumerable();
             };
 
-            _enumerable.prototype.minimum = function ()
+            _enumerable.prototype.minimum = function()
             {
                 var result = null;
 
@@ -102,22 +102,22 @@
 
                 var temp = [];
 
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
-                    if (isNumeric(this.collection[i]))
+                    if(isNumeric(this.collection[i]))
                     {
                         temp.push(this.collection[i]);
                     }
                 }
 
-                if (temp.length > 0)
+                if(temp.length > 0)
                 {
                     result = Math.min.apply(null, temp);
                 }
                 return result;
             };
 
-            _enumerable.prototype.maximum = function ()
+            _enumerable.prototype.maximum = function()
             {
                 var result = null;
 
@@ -128,15 +128,15 @@
 
                 var temp = [];
 
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
-                    if (isNumeric(this.collection[i]))
+                    if(isNumeric(this.collection[i]))
                     {
                         temp.push(this.collection[i]);
                     }
                 }
 
-                if (temp.length > 0)
+                if(temp.length > 0)
                 {
                     result = Math.max.apply(null, temp);
                 }
@@ -144,9 +144,9 @@
                 return result;
             };
 
-            _enumerable.prototype.first = function ()
+            _enumerable.prototype.first = function()
             {
-                if (this.collection.length > 0)
+                if(this.collection.length > 0)
                 {
                     return this.collection[0];
                 }
@@ -156,16 +156,16 @@
                 }
             };
 
-            _enumerable.prototype.firstOrDefault = function (fn)
+            _enumerable.prototype.firstOrDefault = function(fn)
             {
-                if (this.collection.length > 0)
+                if(this.collection.length > 0)
                 {
                     return this.collection[0];
                 }
 
-                if (fn !== null && fn !== undefined)
+                if(fn !== null && fn !== undefined)
                 {
-                    if (typeof fn === "function")
+                    if(typeof fn === "function")
                     {
                         return fn();
                     }
@@ -178,9 +178,9 @@
                 return null;
             };
 
-            _enumerable.prototype.last = function ()
+            _enumerable.prototype.last = function()
             {
-                if (this.collection.length > 0)
+                if(this.collection.length > 0)
                 {
                     return this.collection[this.collection.length - 1];
                 }
@@ -190,16 +190,16 @@
                 }
             };
 
-            _enumerable.prototype.lastOrDefault = function (fn)
+            _enumerable.prototype.lastOrDefault = function(fn)
             {
-                if (this.collection.length > 0)
+                if(this.collection.length > 0)
                 {
                     return this.collection[this.collection.length - 1];
                 }
 
-                if (fn !== null && fn !== undefined)
+                if(fn !== null && fn !== undefined)
                 {
-                    if (typeof fn === "function")
+                    if(typeof fn === "function")
                     {
                         return fn();
                     }
@@ -212,14 +212,14 @@
                 return null;
             };
 
-            _enumerable.prototype.single = function ()
+            _enumerable.prototype.single = function()
             {
-                if (this.collection.length == 1)
+                if(this.collection.length == 1)
                 {
                     return this.collection[0];
                 }
 
-                if (this.collection.length < 1)
+                if(this.collection.length < 1)
                 {
                     throw "sequence contains no elements";
                 }
@@ -229,20 +229,20 @@
                 }
             };
 
-            _enumerable.prototype.singleOrDefault = function (fn)
+            _enumerable.prototype.singleOrDefault = function(fn)
             {
-                if (this.collection.length == 1)
+                if(this.collection.length == 1)
                 {
                     return this.collection[0];
                 }
-                else if (this.length > 1)
+                else if(this.length > 1)
                 {
                     throw "collection contains more than one item";
                 }
 
-                if (fn !== null && fn !== undefined)
+                if(fn !== null && fn !== undefined)
                 {
-                    if (typeof fn === "function")
+                    if(typeof fn === "function")
                     {
                         return fn();
                     }
@@ -255,18 +255,18 @@
                 return null;
             };
 
-            _enumerable.prototype.take = function (count)
+            _enumerable.prototype.take = function(count)
             {
-                if (this.collection.length == 0)
+                if(this.collection.length == 0)
                 {
                     return this;
                 }
 
-                if (this.collection.length > count)
+                if(this.collection.length > count)
                 {
                     var results = [];
 
-                    for (var i = 0; i < count; i++)
+                    for(var i = 0; i < count; i++)
                     {
                         results.push(this.collection[i]);
                     }
@@ -279,24 +279,24 @@
                 }
             };
 
-            _enumerable.prototype.any = function (fn)
+            _enumerable.prototype.any = function(fn)
             {
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
                     var item = this.collection[i];
 
-                    if (item === null || item === undefined)
+                    if(item === null || item === undefined)
                     {
                         continue;
                     }
 
-                    if (fn !== null && fn !== undefined && fn(i, item, this.collection))
+                    if(fn !== null && fn !== undefined && fn(i, item, this.collection))
                     {
                         return true;
                     }
-                    else if (fn === null || fn === undefined)
+                    else if(fn === null || fn === undefined)
                     {
-                        if (this !== null && this !== undefined && this.collection.length > 0)
+                        if(this !== null && this !== undefined && this.collection.length > 0)
                         {
                             return true;
                         }
@@ -306,17 +306,17 @@
                 return false;
             };
 
-            _enumerable.prototype.takeWhile = function (fn)
+            _enumerable.prototype.takeWhile = function(fn)
             {
                 var results = [];
 
-                for (var i = 0; i < this.collection.length; i++)
+                for(var i = 0; i < this.collection.length; i++)
                 {
                     var item = this.collection[i];
 
                     var _callbackResult = fn(i, item, this.collection);
 
-                    if (_callbackResult !== true)
+                    if(_callbackResult !== true)
                     {
                         return results.asEnumerable();;
                     }
@@ -329,15 +329,15 @@
                 return results.asEnumerable();
             };
 
-            _enumerable.prototype.skip = function (count)
+            _enumerable.prototype.skip = function(count)
             {
                 var results = [];
 
                 var canSkip = ((count > 0) && (count < this.collection.length));
 
-                if (canSkip)
+                if(canSkip)
                 {
-                    for (var i = (count - 1); i < count; i++)
+                    for(var i = (count - 1); i < count; i++)
                     {
                         results.push(this.collection[i]);
                     }
@@ -346,20 +346,20 @@
                 return results.asEnumerable();
             };
 
-            _enumerable.prototype.skipWhile = function (fn)
+            _enumerable.prototype.skipWhile = function(fn)
             {
                 var results = [];
 
                 var canSkip = (fn !== null && fn !== undefined && typeof fn === "function");
 
-                if (canSkip)
+                if(canSkip)
                 {
-                    for (var i = 0; i < this.collection.length; i++)
+                    for(var i = 0; i < this.collection.length; i++)
                     {
                         var item = this.collection[i];
                         var _callbackResult = fn(i, item, this.collection);
 
-                        if (_callbackResult !== true)
+                        if(_callbackResult !== true)
                         {
                             results.push(this.collection[i]);
                         }
@@ -369,24 +369,44 @@
                 return results.asEnumerable();
             };
 
-            _enumerable.prototype.count = function ()
+            _enumerable.prototype.count = function(fn)
             {
-                return this.collection.length;
+                if(fn !== null && fn !== undefined && typeof fn === 'function')
+                {
+                    var results = [];
+
+                    for(var i = 0; i < this.collection.length; i++)
+                    {
+                        var item = this.collection[i];
+
+                        if(fn(i, item, this.collection))
+                        {
+                            results.push(item);
+                        }
+                    }
+
+                    return results.length;
+                }
+                else
+                {
+                    return this.collection.length;
+                }
+
             };
 
-            _enumerable.prototype.orderBy = function (property, fn)
+            _enumerable.prototype.orderBy = function(property, fn)
             {
-                if (!this.collection)
+                if(!this.collection)
                 {
                     return null;
                 }
 
-                if (Object.prototype.toString.call(this.collection) != '[object Array]')
+                if(Object.prototype.toString.call(this.collection) != '[object Array]')
                 {
                     return null;
                 }
 
-                if (this.collection.length == 0)
+                if(this.collection.length == 0)
                 {
                     return new Enumerable([]);
                 }
@@ -399,9 +419,9 @@
 
                 var tempArr = this.collection;
 
-                if (hasProperty)
+                if(hasProperty)
                 {
-                    if (Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+                    if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
                     {
                         itemType = 'date';
                     }
@@ -412,7 +432,7 @@
                 }
                 else
                 {
-                    if (Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+                    if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
                     {
                         itemType = 'date';
                     }
@@ -422,33 +442,33 @@
                     }
                 }
 
-                if (hasFn)
+                if(hasFn)
                 {
                     tempArr = [];
-                    for (var i = 0; i < this.collection.length; i++)
+                    for(var i = 0; i < this.collection.length; i++)
                     {
                         var v = fn(this.collection[i]);
 
-                        if (v)
+                        if(v)
                         {
                             tempArr.push(v);
                         }
                     }
                 }
 
-                if (itemType == "string")
+                if(itemType == "string")
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
                         var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
                         var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
 
-                        if (propA_Value < propB_Value)
+                        if(propA_Value < propB_Value)
                         {
                             return -1;
                         }
 
-                        if (propA_Value > propB_Value)
+                        if(propA_Value > propB_Value)
                         {
                             return 1;
                         }
@@ -456,11 +476,11 @@
                         return 0;
                     });
                 }
-                else if (itemType == 'number')
+                else if(itemType == 'number')
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
-                        if (hasProperty)
+                        if(hasProperty)
                         {
                             return a[property] - b[property];
                         }
@@ -470,11 +490,11 @@
                         }
                     });
                 }
-                else if (itemType == 'date')
+                else if(itemType == 'date')
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
-                        if (hasProperty)
+                        if(hasProperty)
                         {
                             return new Date(a[property]) - new Date(b[property]);
                         }
@@ -484,16 +504,16 @@
                         }
                     });
                 }
-                else if (itemType == 'boolean')
+                else if(itemType == 'boolean')
                 {
-                    result = tempArr.sort(function (x, y)
+                    result = tempArr.sort(function(x, y)
                     {
                         // true values first
-                        if (x === y) 
+                        if(x === y) 
                         {
                             return 0;
                         }
-                        else if (x)
+                        else if(x)
                         {
                             return 1;
                         }
@@ -503,12 +523,12 @@
                         }
                     });
                 }
-                else if (itemType == 'array')
+                else if(itemType == 'array')
                 {
                     //not supported
                     result = this.collection;
                 }
-                else if (itemType == 'object')
+                else if(itemType == 'object')
                 {
                     //not supported
                     result = this.collection;
@@ -517,19 +537,19 @@
                 return result.asEnumerable();
             };
 
-            _enumerable.prototype.orderByDescending = function (property, fn)
+            _enumerable.prototype.orderByDescending = function(property, fn)
             {
-                if (!this.collection)
+                if(!this.collection)
                 {
                     return null;
                 }
 
-                if (Object.prototype.toString.call(this.collection) != '[object Array]')
+                if(Object.prototype.toString.call(this.collection) != '[object Array]')
                 {
                     return null;
                 }
 
-                if (this.collection.length == 0)
+                if(this.collection.length == 0)
                 {
                     return new Enumerable([]);
                 }
@@ -542,9 +562,9 @@
 
                 var tempArr = this.collection;
 
-                if (hasProperty)
+                if(hasProperty)
                 {
-                    if (Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+                    if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
                     {
                         itemType = 'date';
                     }
@@ -555,7 +575,7 @@
                 }
                 else
                 {
-                    if (Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+                    if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
                     {
                         itemType = 'date';
                     }
@@ -565,33 +585,33 @@
                     }
                 }
 
-                if (hasFn)
+                if(hasFn)
                 {
                     tempArr = [];
-                    for (var i = 0; i < this.collection.length; i++)
+                    for(var i = 0; i < this.collection.length; i++)
                     {
                         var v = fn(this.collection[i]);
 
-                        if (v)
+                        if(v)
                         {
                             tempArr.push(v);
                         }
                     }
                 }
 
-                if (itemType == "string")
+                if(itemType == "string")
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
                         var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
                         var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
 
-                        if (propA_Value < propB_Value)
+                        if(propA_Value < propB_Value)
                         {
                             return 1;
                         }
 
-                        if (propA_Value > propB_Value)
+                        if(propA_Value > propB_Value)
                         {
                             return -1;
                         }
@@ -599,11 +619,11 @@
                         return 0;
                     });
                 }
-                else if (itemType == 'number')
+                else if(itemType == 'number')
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
-                        if (hasProperty)
+                        if(hasProperty)
                         {
                             return b[property] - a[property];
                         }
@@ -613,11 +633,11 @@
                         }
                     });
                 }
-                else if (itemType == 'date')
+                else if(itemType == 'date')
                 {
-                    result = tempArr.sort(function (a, b)
+                    result = tempArr.sort(function(a, b)
                     {
-                        if (hasProperty)
+                        if(hasProperty)
                         {
                             return new Date(b[property]) - new Date(a[property]);
                         }
@@ -627,16 +647,16 @@
                         }
                     });
                 }
-                else if (itemType == 'boolean')
+                else if(itemType == 'boolean')
                 {
-                    result = tempArr.sort(function (x, y)
+                    result = tempArr.sort(function(x, y)
                     {
                         // true values first
-                        if (x === y) 
+                        if(x === y) 
                         {
                             return 0;
                         }
-                        else if (x)
+                        else if(x)
                         {
                             return -1;
                         }
@@ -646,12 +666,12 @@
                         }
                     });
                 }
-                else if (itemType == 'array')
+                else if(itemType == 'array')
                 {
                     //not supported
                     result = this.collection;
                 }
-                else if (itemType == 'object')
+                else if(itemType == 'object')
                 {
                     //not supported
                     result = this.collection;

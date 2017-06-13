@@ -170,58 +170,96 @@ var result = arr.asEnumerable().orderByDescending("value", function(item) { retu
 ```
 
 ## any
+Determines whether any element of a sequence satisfies a condition.
+
 ``` javascript
+//consider the following array
 var arr = [];
+
+//result equals false
 var result = arr.asEnumerable().any();
+
+
 ```
 
 ## count
+Returns the number of elements in a sequence.
+|Parameter | Description |
+| --- | --- |
+| fn  | A function to test each element for a condition. |
+
 ``` javascript
-var arr = [];
+//consider the following array
+var arr [{ name: 'test', id: 1 }, { name: 'test', id: 2 }, { name: 'test2', id: 2 }];
+
+//result equals 3
 var result = arr.asEnumerable().count();
+
+//or supply a predicate function.
+//result equals 2
+var result = testArray.count(function(i, item, col)
+            {
+                return item.name === 'test';
+            });
 ```
 
 ## first
+Returns the first element of a sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().first();
 ```
 ## firstOrDefault
+Returns the first element of a sequence, or a default value if the sequence contains no elements.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().firstOrDefault();
 ```
 
 ## last
+Returns the last element of a sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().last();
 ```
 
 ## lastOrDefault
+Returns the last element of a sequence, or a default value if the sequence contains no elements.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().lastOrDefault();
 ```
 
 ## single
+Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().single();
 ```
 
 ## singleOrDefault
+Returns a single, specific element of a sequence, or a default value if that element is not found.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().singleOrDefault();
 ```
 
 ## take
+Returns a specified number of contiguous elements from the start of a sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().take();
 ```
 ## takeWhile
+Returns elements from a sequence as long as a specified condition is true.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().takeWhile(function (i, item, collection)
@@ -230,6 +268,8 @@ var result = arr.asEnumerable().takeWhile(function (i, item, collection)
 });
 ```
 ## skipWhile
+Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().skipWhile(function (i, item, collection)
@@ -238,6 +278,7 @@ var result = arr.asEnumerable().skipWhile(function (i, item, collection)
 });
 ```
 ## toArray
+Converts an enumerable object to a native javascript array.
 ``` javascript
 var enumObj = new Enumerable();
 
@@ -245,11 +286,15 @@ var arr = enumObj.toArray();
 ```
 
 ## minimum
+Returns the minimum value in a sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().minmum();
 ```
 ## maximum
+Returns the maximum value in a sequence.
+
 ``` javascript
 var arr = [];
 var result = arr.asEnumerable().maximum();
