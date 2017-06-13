@@ -37,4 +37,20 @@ describe("count", function ()
             expect(result).toEqual(0);
         });
     });
+
+    describe("when an enumerable object has 3 items and a predicate function is supplied", function ()
+    {
+        it("should return items that meet the predicate functions conditions", function ()
+        {
+            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: 'test', id: 2 }, { name: 'test2', id: 2 }]);
+
+            var result = testArray.count(function(i, item, col)
+            {
+                return item.name === 'test';
+            });
+
+            expect(result).toEqual(2);
+        });
+    });
+
 });

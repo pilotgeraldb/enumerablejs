@@ -1,6 +1,6 @@
 {
   "name": "asenumerable",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
   "main": "build/js/enumerable.js",
   "dependencies": {},
@@ -10,6 +10,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
+    "jasmine": "^2.6.0",
     "jasmine-core": "^2.6.2"
   },
   "scripts": {
