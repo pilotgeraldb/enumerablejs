@@ -10,10 +10,14 @@ a JavaScript library that provides linq functions on native JavaScript arrays
 
 ## Getting Started
 
+### bower
 ```bash
 ## install with bower
 $ bower install enumerablejs
+```
 
+### npm
+```bash
 ## install with npm
 $ npm install asenumerable
 ```
