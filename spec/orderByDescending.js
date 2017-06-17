@@ -1,4 +1,4 @@
-var Enumerable = require("../build/js/enumerable.js");
+var Enumerable = require('../src/enumerable');
 
 describe("orderByDescending", function ()
 {

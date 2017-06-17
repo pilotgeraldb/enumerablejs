@@ -13,7 +13,7 @@ gulp.task('js:clean', function()
 
 gulp.task('js', ['js:clean'], function() 
 {
-  return gulp.src('src/*.js')
+  return gulp.src('src/**/*.js')
     .pipe(concat('enumerable.js'))
     .pipe(gulp.dest('build/js'))
 });

@@ -36,26 +36,11 @@
                 }
             };
 
+            _enumerable.fn = _enumerable.prototype;
+
             _enumerable.prototype.toArray = function()
             {
                 return this.collection;
-            };
-
-            _enumerable.prototype.where = function(fn)
-            {
-                var results = [];
-
-                for(var i = 0; i < this.collection.length; i++)
-                {
-                    var item = this.collection[i];
-
-                    if(fn !== null && fn !== undefined && fn(i, item, this.collection))
-                    {
-                        results.push(item);
-                    }
-                }
-
-                return results.asEnumerable();
             };
 
             _enumerable.prototype.select = function(obj)
@@ -685,3 +670,40 @@
 
         return Enumerable;
     }));
+(function(root, factory)
+{
+    if(typeof define === 'function' && define.amd)
+    {
+        define(['../enumerable'], function (Enumerable) 
+        {
+            return (root.Enumerable = factory(Enumerable));
+        });
+    }
+    else if(typeof module === 'object' && module.exports)
+    {
+        module.exports = factory(require('../enumerable'));
+    }
+    else
+    {
+        root.Enumerable = factory(root.Enumerable);
+    }
+}
+(this, function(Enumerable) 
+{
+    Enumerable.fn.where = function(fn)
+    {
+        var results = [];
+
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            var item = this.collection[i];
+
+            if(fn !== null && fn !== undefined && fn(i, item, this.collection))
+            {
+                results.push(item);
+            }
+        }
+
+        return results.asEnumerable();
+    };
+}));

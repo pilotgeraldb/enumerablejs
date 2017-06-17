@@ -4,7 +4,8 @@
     "*.js"
   ],
   "helpers": [
-    "helpers/**/*.js"
+    "helpers/**/*.js",
+    "../src/**/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": false
