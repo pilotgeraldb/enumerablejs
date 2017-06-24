@@ -1,6 +1,7 @@
 [![Bower version](https://badge.fury.io/bo/enumerablejs.svg)](https://badge.fury.io/bo/enumerablejs)
 [![npm version](https://badge.fury.io/js/asenumerable.svg)](https://badge.fury.io/js/asenumerable)
 [![Build Status](https://travis-ci.org/ralphy15/enumerablejs.svg?branch=master)](https://travis-ci.org/ralphy15/enumerablejs)
+[![GitHub issues](https://badges.gitter.im/Join%20Chat.svg?style=plastic)](https://gitter.im/enumerablejs/Lobby)
 
 # enumerablejs 
 
