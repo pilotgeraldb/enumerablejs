@@ -5,3 +5,4 @@ before_script:
   - npm install -g requirejs
   - npm install -g jasmine
   - npm install -g istanbul
+  - npm install -g bower
