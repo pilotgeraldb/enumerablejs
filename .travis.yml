@@ -6,3 +6,6 @@ before_script:
   - npm install -g jasmine
   - npm install -g istanbul
   - npm install -g bower
+  after_success:
+  - npm run coverage
+  - npm run report-coverage

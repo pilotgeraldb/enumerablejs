@@ -5,6 +5,7 @@
   "main": "build/js/enumerable.js",
   "dependencies": {},
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
@@ -18,7 +19,9 @@
     "webpack": "^3.0.0"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "coverage": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
