@@ -10,11 +10,16 @@
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "istanbul": "^0.4.5",
     "jasmine": "^2.6.0",
-    "jasmine-core": "^2.6.2"
+    "jasmine-core": "^2.6.2",
+    "requirejs": "^2.3.3",
+    "webpack": "^3.0.0"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
