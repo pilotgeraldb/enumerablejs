@@ -1,687 +1,995 @@
-(function(root, factory)
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Enumerable"] = factory();
+	else
+		root["Enumerable"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function()
 {
-    if(typeof define === 'function' && define.amd)
+    'use strict';
+    function _enumerable(_array)
     {
-        define([], factory);
-    }
-    else if(typeof module === 'object' && module.exports)
-    {
-        module.exports = factory();
-    }
-    else
-    {
-        root.Enumerable = factory();
-    }
-}
-    (this, function() 
-    {
-        Array.prototype.asEnumerable = function()
+        if(_array)
         {
-            var e = new Enumerable(this);
-
-            return e;
-        };
-
-        var Enumerable = (function()
+            this.collection = _array;
+        }
+        else
         {
-            function _enumerable(_array)
+            this.collection = [];
+        }
+    }
+
+    _enumerable.fn = _enumerable.prototype;
+
+    // _enumerable.__init = function(Enumerable)
+    // {
+    //     Array.prototype.asEnumerable = function()
+    //     {
+    //         var e = new Enumerable(this);
+
+    //         return e;
+    //     };
+
+    //     return this;
+    // };
+
+    // return _enumerable.__init(_enumerable);
+
+    return _enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+
+__webpack_require__(1);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(2);
+__webpack_require__(3);
+__webpack_require__(4);
+__webpack_require__(5);
+__webpack_require__(6);
+__webpack_require__(7);
+__webpack_require__(8);
+__webpack_require__(9);
+__webpack_require__(10);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(13);
+__webpack_require__(14);
+__webpack_require__(15);
+__webpack_require__(16);
+__webpack_require__(17);
+__webpack_require__(18);
+__webpack_require__(19);
+__webpack_require__(20);
+__webpack_require__(21);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+   Array.prototype.asEnumerable = function()
+    {
+        var e = new Enumerable(this);
+
+        return e;
+    };
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.toArray = function()
+    {
+        return this.collection;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.any = function(fn)
+    {
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            var item = this.collection[i];
+
+            if(item === null || item === undefined)
             {
-                if(_array)
+                continue;
+            }
+
+            if(fn !== null && fn !== undefined && fn(i, item, this.collection))
+            {
+                return true;
+            }
+            else if(fn === null || fn === undefined)
+            {
+                if(this !== null && this !== undefined && this.collection.length > 0)
                 {
-                    this.collection = _array;
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.count = function(fn)
+    {
+        if(fn !== null && fn !== undefined && typeof fn === 'function')
+        {
+            var results = [];
+
+            for(var i = 0; i < this.collection.length; i++)
+            {
+                var item = this.collection[i];
+
+                if(fn(i, item, this.collection))
+                {
+                    results.push(item);
+                }
+            }
+
+            return results.length;
+        }
+        else
+        {
+            return this.collection.length;
+        }
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.first = function()
+    {
+        if(this.collection.length > 0)
+        {
+            return this.collection[0];
+        }
+        else
+        {
+            throw "sequence contains no elements";
+        }
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.firstOrDefault = function(fn)
+    {
+        if(this.collection.length > 0)
+        {
+            return this.collection[0];
+        }
+
+        if(fn !== null && fn !== undefined)
+        {
+            if(typeof fn === "function")
+            {
+                return fn();
+            }
+            else
+            {
+                return fn;
+            }
+        }
+
+        return null;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.last = function()
+    {
+        if(this.collection.length > 0)
+        {
+            return this.collection[this.collection.length - 1];
+        }
+        else
+        {
+            throw "sequence contains no elements";
+        }
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.lastOrDefault = function(fn)
+    {
+        if(this.collection.length > 0)
+        {
+            return this.collection[this.collection.length - 1];
+        }
+
+        if(fn !== null && fn !== undefined)
+        {
+            if(typeof fn === "function")
+            {
+                return fn();
+            }
+            else
+            {
+                return fn;
+            }
+        }
+
+        return null;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.maximum = function()
+    {
+        var result = null;
+
+        function isNumeric(x)
+        {
+            return (typeof x === 'number') && (x % 1 === 0);
+        }
+
+        var temp = [];
+
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            if(isNumeric(this.collection[i]))
+            {
+                temp.push(this.collection[i]);
+            }
+        }
+
+        if(temp.length > 0)
+        {
+            result = Math.max.apply(null, temp);
+        }
+
+        return result;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.minimum = function()
+    {
+        var result = null;
+
+        function isNumeric(x)
+        {
+            return (typeof x === 'number') && (x % 1 === 0);
+        }
+
+        var temp = [];
+
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            if(isNumeric(this.collection[i]))
+            {
+                temp.push(this.collection[i]);
+            }
+        }
+
+        if(temp.length > 0)
+        {
+            result = Math.min.apply(null, temp);
+        }
+        
+        return result;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.orderBy = function(property, fn)
+    {
+        if(!this.collection)
+        {
+            return null;
+        }
+
+        if(Object.prototype.toString.call(this.collection) != '[object Array]')
+        {
+            return null;
+        }
+
+        if(this.collection.length === 0)
+        {
+            return new Enumerable([]);
+        }
+
+        var hasFn = (fn && typeof fn == 'function');
+        var hasProperty = (property) ? true : false;
+
+        var result = [];
+        var itemType = "string";
+
+        var tempArr = this.collection;
+
+        if(hasProperty)
+        {
+            if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+            {
+                itemType = 'date';
+            }
+            else
+            {
+                itemType = (typeof tempArr[0][property]);
+            }
+        }
+        else
+        {
+            if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+            {
+                itemType = 'date';
+            }
+            else
+            {
+                itemType = (typeof tempArr[0]);
+            }
+        }
+
+        if(hasFn)
+        {
+            tempArr = [];
+            for(var i = 0; i < this.collection.length; i++)
+            {
+                var v = fn(this.collection[i]);
+
+                if(v)
+                {
+                    tempArr.push(v);
+                }
+            }
+        }
+
+        if(itemType == "string")
+        {
+            result = tempArr.sort(function(a, b)
+            {
+                var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
+                var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
+
+                if(propA_Value < propB_Value)
+                {
+                    return -1;
+                }
+
+                if(propA_Value > propB_Value)
+                {
+                    return 1;
+                }
+
+                return 0;
+            });
+        }
+        else if(itemType == 'number')
+        {
+            result = tempArr.sort(function(a, b)
+            {
+                if(hasProperty)
+                {
+                    return a[property] - b[property];
                 }
                 else
                 {
-                    this.collection = [];
+                    return a - b;
                 }
-            };
-
-            _enumerable.prototype.toArray = function()
+            });
+        }
+        else if(itemType == 'date')
+        {
+            result = tempArr.sort(function(a, b)
             {
-                return this.collection;
-            };
-
-            _enumerable.prototype.where = function(fn)
-            {
-                var results = [];
-
-                for(var i = 0; i < this.collection.length; i++)
+                if(hasProperty)
                 {
-                    var item = this.collection[i];
+                    return new Date(a[property]) - new Date(b[property]);
+                }
+                else
+                {
+                    return new Date(a) - new Date(b);
+                }
+            });
+        }
+        else if(itemType == 'boolean')
+        {
+            result = tempArr.sort(function(x, y)
+            {
+                // true values first
+                if(x === y) 
+                {
+                    return 0;
+                }
+                else if(x)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
+            });
+        }
+        else if(itemType == 'array')
+        {
+            //not supported
+            result = this.collection;
+        }
+        else if(itemType == 'object')
+        {
+            //not supported
+            result = this.collection;
+        }
 
-                    if(fn !== null && fn !== undefined && fn(i, item, this.collection))
-                    {
-                        results.push(item);
-                    }
+        return result.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.orderByDescending = function(property, fn)
+    {
+        if(!this.collection)
+        {
+            return null;
+        }
+
+        if(Object.prototype.toString.call(this.collection) != '[object Array]')
+        {
+            return null;
+        }
+
+        if(this.collection.length === 0)
+        {
+            return new Enumerable([]);
+        }
+
+        var hasFn = (fn && typeof fn == 'function');
+        var hasProperty = (property) ? true : false;
+
+        var result = [];
+        var itemType = "string";
+
+        var tempArr = this.collection;
+
+        if(hasProperty)
+        {
+            if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
+            {
+                itemType = 'date';
+            }
+            else
+            {
+                itemType = (typeof tempArr[0][property]);
+            }
+        }
+        else
+        {
+            if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
+            {
+                itemType = 'date';
+            }
+            else
+            {
+                itemType = (typeof tempArr[0]);
+            }
+        }
+
+        if(hasFn)
+        {
+            tempArr = [];
+            for(var i = 0; i < this.collection.length; i++)
+            {
+                var v = fn(this.collection[i]);
+
+                if(v)
+                {
+                    tempArr.push(v);
+                }
+            }
+        }
+
+        if(itemType == "string")
+        {
+            result = tempArr.sort(function(a, b)
+            {
+                var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
+                var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
+
+                if(propA_Value < propB_Value)
+                {
+                    return 1;
                 }
 
-                return results.asEnumerable();
-            };
-
-            _enumerable.prototype.select = function(obj)
-            {
-                var results = [];
-
-                for(var i = 0; i < this.collection.length; i++)
+                if(propA_Value > propB_Value)
                 {
-                    var item = this.collection[i];
+                    return -1;
+                }
 
-                    if(obj !== null && obj !== undefined && obj.length > 0)
+                return 0;
+            });
+        }
+        else if(itemType == 'number')
+        {
+            result = tempArr.sort(function(a, b)
+            {
+                if(hasProperty)
+                {
+                    return b[property] - a[property];
+                }
+                else
+                {
+                    return b - a;
+                }
+            });
+        }
+        else if(itemType == 'date')
+        {
+            result = tempArr.sort(function(a, b)
+            {
+                if(hasProperty)
+                {
+                    return new Date(b[property]) - new Date(a[property]);
+                }
+                else
+                {
+                    return new Date(b) - new Date(a);
+                }
+            });
+        }
+        else if(itemType == 'boolean')
+        {
+            result = tempArr.sort(function(x, y)
+            {
+                // true values first
+                if(x === y) 
+                {
+                    return 0;
+                }
+                else if(x)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            });
+        }
+        else if(itemType == 'array')
+        {
+            //not supported
+            result = this.collection;
+        }
+        else if(itemType == 'object')
+        {
+            //not supported
+            result = this.collection;
+        }
+
+        return result.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.select = function(obj)
+    {
+        var results = [];
+
+            for(var i = 0; i < this.collection.length; i++)
+            {
+                var item = this.collection[i];
+
+                if(obj !== null && obj !== undefined && obj.length > 0)
+                {
+                    var _temp = {};
+                    for(var x = 0; x < obj.length; x++)
                     {
-                        var _temp = {};
-                        for(var x = 0; x < obj.length; x++)
+                        var prop = obj[x];
+                        for(var p in item)
                         {
-                            var prop = obj[x];
-                            for(var p in item)
+                            if(p === prop)
                             {
-                                if(p === prop)
-                                {
-                                    _temp[prop] = item[p];
-                                }
+                                _temp[prop] = item[p];
                             }
                         }
-                        results.push(_temp);
                     }
-                    else
-                    {
-                        results.push(item);
-                    }
+                    results.push(_temp);
                 }
+                else
+                {
+                    results.push(item);
+                }
+            }
 
+            return results.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.single = function()
+    {
+        if(this.collection.length == 1)
+        {
+            return this.collection[0];
+        }
+
+        if(this.collection.length < 1)
+        {
+            throw "sequence contains no elements";
+        }
+        else
+        {
+            throw "collection contains more than one item";
+        }
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.singleOrDefault = function(fn)
+    {
+        if(this.collection.length == 1)
+        {
+            return this.collection[0];
+        }
+        else if(this.length > 1)
+        {
+            throw "collection contains more than one item";
+        }
+
+        if(fn !== null && fn !== undefined)
+        {
+            if(typeof fn === "function")
+            {
+                return fn();
+            }
+            else
+            {
+                return fn;
+            }
+        }
+
+        return null;
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.skip = function(count)
+    {
+        var results = [];
+
+        var canSkip = ((count > 0) && (count < this.collection.length));
+
+        if(canSkip)
+        {
+            for(var i = (count - 1); i < count; i++)
+            {
+                results.push(this.collection[i]);
+            }
+        }
+
+        return results.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.skipWhile = function(fn)
+    {
+        var results = [];
+
+        var canSkip = (fn !== null && fn !== undefined && typeof fn === "function");
+
+        if(canSkip)
+        {
+            for(var i = 0; i < this.collection.length; i++)
+            {
+                var item = this.collection[i];
+                var _callbackResult = fn(i, item, this.collection);
+
+                if(_callbackResult !== true)
+                {
+                    results.push(this.collection[i]);
+                }
+            }
+        }
+
+        return results.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.take = function(count)
+    {
+        if(this.collection.length === 0)
+        {
+            return this;
+        }
+
+        if(this.collection.length > count)
+        {
+            var results = [];
+
+            for(var i = 0; i < count; i++)
+            {
+                results.push(this.collection[i]);
+            }
+
+            return results.asEnumerable();
+        }
+        else
+        {
+            return this;
+        }
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.takeWhile = function(fn)
+    {
+        var results = [];
+
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            var item = this.collection[i];
+
+            var _callbackResult = fn(i, item, this.collection);
+
+            if(_callbackResult !== true)
+            {
                 return results.asEnumerable();
-            };
-
-            _enumerable.prototype.minimum = function()
+            }
+            else
             {
-                var result = null;
+                results.push(this.collection[i]);
+            }
+        }
 
-                function isNumeric(x)
-                {
-                    return (typeof x === 'number') && (x % 1 === 0);
-                }
+        return results.asEnumerable();
+    };
 
-                var temp = [];
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-                for(var i = 0; i < this.collection.length; i++)
-                {
-                    if(isNumeric(this.collection[i]))
-                    {
-                        temp.push(this.collection[i]);
-                    }
-                }
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
 
-                if(temp.length > 0)
-                {
-                    result = Math.min.apply(null, temp);
-                }
-                return result;
-            };
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = function(Enumerable)
+{
+    Enumerable.fn.where = function(fn)
+    {
+        var results = [];
 
-            _enumerable.prototype.maximum = function()
+        for(var i = 0; i < this.collection.length; i++)
+        {
+            var item = this.collection[i];
+
+            if(fn !== null && fn !== undefined && fn(i, item, this.collection))
             {
-                var result = null;
-
-                function isNumeric(x)
-                {
-                    return (typeof x === 'number') && (x % 1 === 0);
-                }
-
-                var temp = [];
-
-                for(var i = 0; i < this.collection.length; i++)
-                {
-                    if(isNumeric(this.collection[i]))
-                    {
-                        temp.push(this.collection[i]);
-                    }
-                }
-
-                if(temp.length > 0)
-                {
-                    result = Math.max.apply(null, temp);
-                }
-
-                return result;
-            };
-
-            _enumerable.prototype.first = function()
-            {
-                if(this.collection.length > 0)
-                {
-                    return this.collection[0];
-                }
-                else
-                {
-                    throw "sequence contains no elements"
-                }
-            };
-
-            _enumerable.prototype.firstOrDefault = function(fn)
-            {
-                if(this.collection.length > 0)
-                {
-                    return this.collection[0];
-                }
-
-                if(fn !== null && fn !== undefined)
-                {
-                    if(typeof fn === "function")
-                    {
-                        return fn();
-                    }
-                    else
-                    {
-                        return fn;
-                    }
-                }
-
-                return null;
-            };
-
-            _enumerable.prototype.last = function()
-            {
-                if(this.collection.length > 0)
-                {
-                    return this.collection[this.collection.length - 1];
-                }
-                else
-                {
-                    throw "sequence contains no elements"
-                }
-            };
-
-            _enumerable.prototype.lastOrDefault = function(fn)
-            {
-                if(this.collection.length > 0)
-                {
-                    return this.collection[this.collection.length - 1];
-                }
-
-                if(fn !== null && fn !== undefined)
-                {
-                    if(typeof fn === "function")
-                    {
-                        return fn();
-                    }
-                    else
-                    {
-                        return fn;
-                    }
-                }
-
-                return null;
-            };
-
-            _enumerable.prototype.single = function()
-            {
-                if(this.collection.length == 1)
-                {
-                    return this.collection[0];
-                }
-
-                if(this.collection.length < 1)
-                {
-                    throw "sequence contains no elements";
-                }
-                else
-                {
-                    throw "collection contains more than one item";
-                }
-            };
-
-            _enumerable.prototype.singleOrDefault = function(fn)
-            {
-                if(this.collection.length == 1)
-                {
-                    return this.collection[0];
-                }
-                else if(this.length > 1)
-                {
-                    throw "collection contains more than one item";
-                }
-
-                if(fn !== null && fn !== undefined)
-                {
-                    if(typeof fn === "function")
-                    {
-                        return fn();
-                    }
-                    else
-                    {
-                        return fn;
-                    }
-                }
-
-                return null;
-            };
-
-            _enumerable.prototype.take = function(count)
-            {
-                if(this.collection.length == 0)
-                {
-                    return this;
-                }
-
-                if(this.collection.length > count)
-                {
-                    var results = [];
-
-                    for(var i = 0; i < count; i++)
-                    {
-                        results.push(this.collection[i]);
-                    }
-
-                    return results.asEnumerable();
-                }
-                else
-                {
-                    return this;
-                }
-            };
-
-            _enumerable.prototype.any = function(fn)
-            {
-                for(var i = 0; i < this.collection.length; i++)
-                {
-                    var item = this.collection[i];
-
-                    if(item === null || item === undefined)
-                    {
-                        continue;
-                    }
-
-                    if(fn !== null && fn !== undefined && fn(i, item, this.collection))
-                    {
-                        return true;
-                    }
-                    else if(fn === null || fn === undefined)
-                    {
-                        if(this !== null && this !== undefined && this.collection.length > 0)
-                        {
-                            return true;
-                        }
-                    }
-                }
-
-                return false;
-            };
-
-            _enumerable.prototype.takeWhile = function(fn)
-            {
-                var results = [];
-
-                for(var i = 0; i < this.collection.length; i++)
-                {
-                    var item = this.collection[i];
-
-                    var _callbackResult = fn(i, item, this.collection);
-
-                    if(_callbackResult !== true)
-                    {
-                        return results.asEnumerable();;
-                    }
-                    else
-                    {
-                        results.push(this.collection[i]);
-                    }
-                }
-
-                return results.asEnumerable();
-            };
-
-            _enumerable.prototype.skip = function(count)
-            {
-                var results = [];
-
-                var canSkip = ((count > 0) && (count < this.collection.length));
-
-                if(canSkip)
-                {
-                    for(var i = (count - 1); i < count; i++)
-                    {
-                        results.push(this.collection[i]);
-                    }
-                }
-
-                return results.asEnumerable();
-            };
-
-            _enumerable.prototype.skipWhile = function(fn)
-            {
-                var results = [];
-
-                var canSkip = (fn !== null && fn !== undefined && typeof fn === "function");
-
-                if(canSkip)
-                {
-                    for(var i = 0; i < this.collection.length; i++)
-                    {
-                        var item = this.collection[i];
-                        var _callbackResult = fn(i, item, this.collection);
-
-                        if(_callbackResult !== true)
-                        {
-                            results.push(this.collection[i]);
-                        }
-                    }
-                }
-
-                return results.asEnumerable();
-            };
-
-            _enumerable.prototype.count = function(fn)
-            {
-                if(fn !== null && fn !== undefined && typeof fn === 'function')
-                {
-                    var results = [];
-
-                    for(var i = 0; i < this.collection.length; i++)
-                    {
-                        var item = this.collection[i];
-
-                        if(fn(i, item, this.collection))
-                        {
-                            results.push(item);
-                        }
-                    }
-
-                    return results.length;
-                }
-                else
-                {
-                    return this.collection.length;
-                }
-
-            };
-
-            _enumerable.prototype.orderBy = function(property, fn)
-            {
-                if(!this.collection)
-                {
-                    return null;
-                }
-
-                if(Object.prototype.toString.call(this.collection) != '[object Array]')
-                {
-                    return null;
-                }
-
-                if(this.collection.length == 0)
-                {
-                    return new Enumerable([]);
-                }
-
-                var hasFn = (fn && typeof fn == 'function');
-                var hasProperty = (property) ? true : false;
-
-                var result = [];
-                var itemType = "string";
-
-                var tempArr = this.collection;
-
-                if(hasProperty)
-                {
-                    if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-                    {
-                        itemType = 'date';
-                    }
-                    else
-                    {
-                        itemType = (typeof tempArr[0][property]);
-                    }
-                }
-                else
-                {
-                    if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-                    {
-                        itemType = 'date';
-                    }
-                    else
-                    {
-                        itemType = (typeof tempArr[0]);
-                    }
-                }
-
-                if(hasFn)
-                {
-                    tempArr = [];
-                    for(var i = 0; i < this.collection.length; i++)
-                    {
-                        var v = fn(this.collection[i]);
-
-                        if(v)
-                        {
-                            tempArr.push(v);
-                        }
-                    }
-                }
-
-                if(itemType == "string")
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
-                        var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
-
-                        if(propA_Value < propB_Value)
-                        {
-                            return -1;
-                        }
-
-                        if(propA_Value > propB_Value)
-                        {
-                            return 1;
-                        }
-
-                        return 0;
-                    });
-                }
-                else if(itemType == 'number')
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        if(hasProperty)
-                        {
-                            return a[property] - b[property];
-                        }
-                        else
-                        {
-                            return a - b;
-                        }
-                    });
-                }
-                else if(itemType == 'date')
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        if(hasProperty)
-                        {
-                            return new Date(a[property]) - new Date(b[property]);
-                        }
-                        else
-                        {
-                            return new Date(a) - new Date(b);
-                        }
-                    });
-                }
-                else if(itemType == 'boolean')
-                {
-                    result = tempArr.sort(function(x, y)
-                    {
-                        // true values first
-                        if(x === y) 
-                        {
-                            return 0;
-                        }
-                        else if(x)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                    });
-                }
-                else if(itemType == 'array')
-                {
-                    //not supported
-                    result = this.collection;
-                }
-                else if(itemType == 'object')
-                {
-                    //not supported
-                    result = this.collection;
-                }
-
-                return result.asEnumerable();
-            };
-
-            _enumerable.prototype.orderByDescending = function(property, fn)
-            {
-                if(!this.collection)
-                {
-                    return null;
-                }
-
-                if(Object.prototype.toString.call(this.collection) != '[object Array]')
-                {
-                    return null;
-                }
-
-                if(this.collection.length == 0)
-                {
-                    return new Enumerable([]);
-                }
-
-                var hasFn = (fn && typeof fn == 'function');
-                var hasProperty = (property) ? true : false;
-
-                var result = [];
-                var itemType = "string";
-
-                var tempArr = this.collection;
-
-                if(hasProperty)
-                {
-                    if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-                    {
-                        itemType = 'date';
-                    }
-                    else
-                    {
-                        itemType = (typeof tempArr[0][property]);
-                    }
-                }
-                else
-                {
-                    if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-                    {
-                        itemType = 'date';
-                    }
-                    else
-                    {
-                        itemType = (typeof tempArr[0]);
-                    }
-                }
-
-                if(hasFn)
-                {
-                    tempArr = [];
-                    for(var i = 0; i < this.collection.length; i++)
-                    {
-                        var v = fn(this.collection[i]);
-
-                        if(v)
-                        {
-                            tempArr.push(v);
-                        }
-                    }
-                }
-
-                if(itemType == "string")
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
-                        var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
-
-                        if(propA_Value < propB_Value)
-                        {
-                            return 1;
-                        }
-
-                        if(propA_Value > propB_Value)
-                        {
-                            return -1;
-                        }
-
-                        return 0;
-                    });
-                }
-                else if(itemType == 'number')
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        if(hasProperty)
-                        {
-                            return b[property] - a[property];
-                        }
-                        else
-                        {
-                            return b - a;
-                        }
-                    });
-                }
-                else if(itemType == 'date')
-                {
-                    result = tempArr.sort(function(a, b)
-                    {
-                        if(hasProperty)
-                        {
-                            return new Date(b[property]) - new Date(a[property]);
-                        }
-                        else
-                        {
-                            return new Date(b) - new Date(a);
-                        }
-                    });
-                }
-                else if(itemType == 'boolean')
-                {
-                    result = tempArr.sort(function(x, y)
-                    {
-                        // true values first
-                        if(x === y) 
-                        {
-                            return 0;
-                        }
-                        else if(x)
-                        {
-                            return -1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    });
-                }
-                else if(itemType == 'array')
-                {
-                    //not supported
-                    result = this.collection;
-                }
-                else if(itemType == 'object')
-                {
-                    //not supported
-                    result = this.collection;
-                }
-
-                return result.asEnumerable();
-            };
-
-            return _enumerable;
-        }());
-
-        return Enumerable;
-    }));
+                results.push(item);
+            }
+        }
+
+        return results.asEnumerable();
+    };
+
+    return Enumerable;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ })
+/******/ ]);
+});
