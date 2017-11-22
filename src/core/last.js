@@ -1,6 +1,6 @@
- var Enumerable = require('../enumerable');
+var Enumerable = require('../enumerable');
 
- Enumerable.fn.last = function()
+Enumerable.fn.last = function()
 {
     if(this.collection.length > 0)
     {

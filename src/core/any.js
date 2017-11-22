@@ -23,7 +23,5 @@ Enumerable.fn.any = function(fn)
             }
         }
     }
-
     return false;
 };
-

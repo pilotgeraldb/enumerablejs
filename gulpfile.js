@@ -1,27 +1,55 @@
-﻿var gulp = require('gulp'); 
+﻿var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require("gulp-rename");
+var addsrc = require('gulp-add-src');
+var through = require('through2');
+var duo = require("duo");
 var del = require("del");
 
-gulp.task('build', ['js:minify']);
+gulp.task('build', ['compile']);
 
-gulp.task('js:clean', function() 
+gulp.task('clean', function() 
 {
-    return del(['build']);
+  return del(['build', 'components', 'duo']);
 });
 
-gulp.task('js', ['js:clean'], function() 
+gulp.task('compile', ['clean'], function() 
 {
-  return gulp.src('src/**/*.js')
-    .pipe(concat('enumerable.js'))
+  return gulp.src('src/enumerable.js')
+    .pipe(through.obj(function(file, enc, fn)
+    {
+      var _duo = new duo(__dirname);
+
+      _duo.entry(file.path)
+          .standalone('enumerablejs')
+          .run(function(err, src)
+          {
+            if(err) 
+            {
+              return fn(err);
+            }
+            // console.log(typeof(src));
+            // console.log(Object.keys(src));
+            // console.log(typeof(src.code));
+            file.contents = new Buffer(src.code, 'utf8');
+
+            fn(null, file);
+          });
+    }))
     .pipe(gulp.dest('build/js'))
-});
-
-gulp.task('js:minify', ['js'], function() 
-{
-  return gulp.src('build/js/enumerable.js')
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('build/js'));
+
 });
+
+// gulp.task('minify', ['compile'], function() 
+// {
+//   var stream = gulp.src('duo/src/enumerable.js')
+//     .pipe(uglify())
+//     .pipe(rename({ suffix: '.min' }))
+//     .pipe(gulp.dest('build/js'));
+
+//     return stream;
+// });

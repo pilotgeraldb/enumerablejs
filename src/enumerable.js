@@ -1,45 +1,42 @@
-﻿(function(root, factory)
+﻿Array.prototype.asEnumerable = function()
 {
-    if(typeof define === 'function' && define.amd)
+    var e = new Enumerable(this);
+
+    return e;
+};
+
+function Enumerable(_array)
+{
+    if(_array)
     {
-        define([], factory);
-    }
-    else if(typeof module === 'object' && module.exports)
-    {
-        module.exports = factory();
+        this.collection = _array;
     }
     else
     {
-        root.Enumerable = factory();
+        this.collection = [];
     }
-}
-    (this, function() 
-    {
-        Array.prototype.asEnumerable = function()
-        {
-            var e = new Enumerable(this);
+};
 
-            return e;
-        };
+Enumerable.fn = Enumerable.prototype;
 
-        var Enumerable = (function()
-        {
-            function _enumerable(_array)
-            {
-                if(_array)
-                {
-                    this.collection = _array;
-                }
-                else
-                {
-                    this.collection = [];
-                }
-            };
+module.exports = Enumerable;
 
-            _enumerable.fn = _enumerable.prototype;
-
-            return _enumerable;
-        }());
-
-        return Enumerable;
-    }));
+require('./core/any');
+require('./core/count');
+require('./core/first');
+require('./core/firstOrDefault');
+require('./core/last');
+require('./core/lastOrDefault');
+require('./core/maximum');
+require('./core/minimum');
+require('./core/orderBy');
+require('./core/orderByDescending');
+require('./core/select');
+require('./core/single');
+require('./core/singleOrDefault');
+require('./core/skip');
+require('./core/skipWhile');
+require('./core/take');
+require('./core/takeWhile');
+require('./core/toArray');
+require('./core/where');
