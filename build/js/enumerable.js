@@ -1,104 +1,83 @@
-(function umd(require){
-  if (typeof exports === 'object') {
-    module.exports = require('1');
-  } else if (typeof define === 'function' && (define.amd || define.cmd)) {
-    define(function(){ return require('1'); });
-  } else {
-    this['enumerablejs'] = require('1');
-  }
-})((function outer(modules, cache, entries){
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Enumerable"] = factory();
+	else
+		root["Enumerable"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  /**
-   * Global
-   */
-
-  var global = (function(){ return this; })();
-
-  /**
-   * Require `name`.
-   *
-   * @param {String} name
-   * @api public
-   */
-
-  function require(name){
-    if (cache[name]) return cache[name].exports;
-    if (modules[name]) return call(name, require);
-    throw new Error('cannot find module "' + name + '"');
-  }
-
-  /**
-   * Call module `id` and cache it.
-   *
-   * @param {Number} id
-   * @param {Function} require
-   * @return {Function}
-   * @api private
-   */
-
-  function call(id, require){
-    var m = cache[id] = { exports: {} };
-    var mod = modules[id];
-    var name = mod[2];
-    var fn = mod[0];
-    var threw = true;
-
-    try {
-      fn.call(m.exports, function(req){
-        var dep = modules[id][1][req];
-        return require(dep || req);
-      }, m, m.exports, outer, modules, cache, entries);
-      threw = false;
-    } finally {
-      if (threw) {
-        delete cache[id];
-      } else if (name) {
-        // expose as 'name'.
-        cache[name] = cache[id];
-      }
-    }
-
-    return cache[id].exports;
-  }
-
-  /**
-   * Require all entries exposing them on global if needed.
-   */
-
-  for (var id in entries) {
-    if (entries[id]) {
-      global[entries[id]] = require(id);
-    } else {
-      require(id);
-    }
-  }
-
-  /**
-   * Duo flag.
-   */
-
-  require.duo = true;
-
-  /**
-   * Expose cache.
-   */
-
-  require.cache = cache;
-
-  /**
-   * Expose modules
-   */
-
-  require.modules = modules;
-
-  /**
-   * Return newest require.
-   */
-
-   return require;
-})({
-1: [function(require, module, exports) {
-﻿Array.prototype.asEnumerable = function()
+Array.prototype.asEnumerable = function()
 {
     var e = new Enumerable(this);
 
@@ -121,28 +100,63 @@ Enumerable.fn = Enumerable.prototype;
 
 module.exports = Enumerable;
 
-require('./core/any');
-require('./core/count');
-require('./core/first');
-require('./core/firstOrDefault');
-require('./core/last');
-require('./core/lastOrDefault');
-require('./core/maximum');
-require('./core/minimum');
-require('./core/orderBy');
-require('./core/orderByDescending');
-require('./core/select');
-require('./core/single');
-require('./core/singleOrDefault');
-require('./core/skip');
-require('./core/skipWhile');
-require('./core/take');
-require('./core/takeWhile');
-require('./core/toArray');
-require('./core/where');
-}, {"./core/any":2,"./core/count":3,"./core/first":4,"./core/firstOrDefault":5,"./core/last":6,"./core/lastOrDefault":7,"./core/maximum":8,"./core/minimum":9,"./core/orderBy":10,"./core/orderByDescending":11,"./core/select":12,"./core/single":13,"./core/singleOrDefault":14,"./core/skip":15,"./core/skipWhile":16,"./core/take":17,"./core/takeWhile":18,"./core/toArray":19,"./core/where":20}],
-2: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+__webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(2);
+__webpack_require__(3);
+__webpack_require__(4);
+__webpack_require__(5);
+__webpack_require__(6);
+__webpack_require__(7);
+__webpack_require__(8);
+__webpack_require__(9);
+__webpack_require__(10);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(13);
+__webpack_require__(14);
+__webpack_require__(15);
+__webpack_require__(16);
+__webpack_require__(17);
+__webpack_require__(18);
+__webpack_require__(19);
+__webpack_require__(20);
+__webpack_require__(21);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
+
+Array.prototype.asEnumerable = function()
+{
+    var e = new Enumerable(this);
+
+    return e;
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
+
+Enumerable.fn.toArray = function()
+{
+    return this.collection;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.any = function(fn)
 {
@@ -170,10 +184,11 @@ Enumerable.fn.any = function(fn)
     return false;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-3: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.count = function(fn)
 {
@@ -199,10 +214,11 @@ Enumerable.fn.count = function(fn)
     }
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-4: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.first = function()
 {
@@ -216,10 +232,12 @@ Enumerable.fn.first = function()
     }
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-5: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.firstOrDefault = function(fn)
 {
@@ -243,10 +261,11 @@ Enumerable.fn.firstOrDefault = function(fn)
     return null;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-6: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.last = function()
 {
@@ -260,10 +279,11 @@ Enumerable.fn.last = function()
     }
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-7: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.lastOrDefault = function(fn)
 {
@@ -287,10 +307,11 @@ Enumerable.fn.lastOrDefault = function(fn)
     return null;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-8: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.maximum = function()
 {
@@ -319,10 +340,11 @@ Enumerable.fn.maximum = function()
     return result;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-9: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.minimum = function()
 {
@@ -350,10 +372,11 @@ Enumerable.fn.minimum = function()
     return result;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-10: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.orderBy = function(property, fn)
 {
@@ -498,158 +521,17 @@ Enumerable.fn.orderBy = function(property, fn)
     return result.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-11: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
 
-Enumerable.fn.orderByDescending = function(property, fn)
-{
-    if(!this.collection)
-    {
-        return null;
-    }
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| <<<<<<< HEAD\r\n| var Enumerable = require('../enumerable');\r\n| \r");
 
-    if(Object.prototype.toString.call(this.collection) != '[object Array]')
-    {
-        return null;
-    }
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
 
-    if(this.collection.length == 0)
-    {
-        return new Enumerable([]);
-    }
-
-    var hasFn = (fn && typeof fn == 'function');
-    var hasProperty = (property) ? true : false;
-
-    var result = [];
-    var itemType = "string";
-
-    var tempArr = this.collection;
-
-    if(hasProperty)
-    {
-        if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0][property]);
-        }
-    }
-    else
-    {
-        if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0]);
-        }
-    }
-
-    if(hasFn)
-    {
-        tempArr = [];
-        for(var i = 0; i < this.collection.length; i++)
-        {
-            var v = fn(this.collection[i]);
-
-            if(v)
-            {
-                tempArr.push(v);
-            }
-        }
-    }
-
-    if(itemType == "string")
-    {
-        result = tempArr.sort(function(a, b)
-        {
-            var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
-            var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
-
-            if(propA_Value < propB_Value)
-            {
-                return 1;
-            }
-
-            if(propA_Value > propB_Value)
-            {
-                return -1;
-            }
-
-            return 0;
-        });
-    }
-    else if(itemType == 'number')
-    {
-        result = tempArr.sort(function(a, b)
-        {
-            if(hasProperty)
-            {
-                return b[property] - a[property];
-            }
-            else
-            {
-                return b - a;
-            }
-        });
-    }
-    else if(itemType == 'date')
-    {
-        result = tempArr.sort(function(a, b)
-        {
-            if(hasProperty)
-            {
-                return new Date(b[property]) - new Date(a[property]);
-            }
-            else
-            {
-                return new Date(b) - new Date(a);
-            }
-        });
-    }
-    else if(itemType == 'boolean')
-    {
-        result = tempArr.sort(function(x, y)
-        {
-            // true values first
-            if(x === y) 
-            {
-                return 0;
-            }
-            else if(x)
-            {
-                return -1;
-            }
-            else
-            {
-                return 1;
-            }
-        });
-    }
-    else if(itemType == 'array')
-    {
-        //not supported
-        result = this.collection;
-    }
-    else if(itemType == 'object')
-    {
-        //not supported
-        result = this.collection;
-    }
-
-    return result.asEnumerable();
-};
-
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-12: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.select = function(obj)
 {
@@ -684,10 +566,11 @@ Enumerable.fn.select = function(obj)
     return results.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-13: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.single = function()
 {
@@ -706,10 +589,11 @@ Enumerable.fn.single = function()
     }
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-14: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.singleOrDefault = function(fn)
 {
@@ -737,10 +621,12 @@ Enumerable.fn.singleOrDefault = function(fn)
     return null;
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-15: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.skip = function(count)
 {
@@ -759,10 +645,11 @@ Enumerable.fn.skip = function(count)
     return results.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-16: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.skipWhile = function(fn)
 {
@@ -787,10 +674,11 @@ Enumerable.fn.skipWhile = function(fn)
     return results.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-17: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.take = function(count)
 {
@@ -816,10 +704,11 @@ Enumerable.fn.take = function(count)
     }
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-18: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.takeWhile = function(fn)
 {
@@ -844,20 +733,11 @@ Enumerable.fn.takeWhile = function(fn)
     return results.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-19: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
 
-Enumerable.fn.toArray = function()
-{
-    return this.collection;
-};
-
-module.exports = Enumerable;
-}, {"../enumerable":1}],
-20: [function(require, module, exports) {
-var Enumerable = require('../enumerable');
+var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.where = function(fn)
 {
@@ -876,5 +756,6 @@ Enumerable.fn.where = function(fn)
     return results.asEnumerable();
 };
 
-module.exports = Enumerable;
-}, {"../enumerable":1}]}, {}, {"1":""}));
+/***/ })
+/******/ ]);
+});

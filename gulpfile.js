@@ -6,50 +6,46 @@ var addsrc = require('gulp-add-src');
 var through = require('through2');
 var duo = require("duo");
 var del = require("del");
+var webpack = require("webpack");
+var gutil = require('gulp-util');
 
-gulp.task('build', ['compile']);
+gulp.task('default', ['minify']);
 
 gulp.task('clean', function() 
 {
-  return del(['build', 'components', 'duo']);
+  return del(['build', 'coverage']);
 });
 
-gulp.task('compile', ['clean'], function() 
+gulp.task('build', ['clean'], function(callback) 
 {
-  return gulp.src('src/enumerable.js')
-    .pipe(through.obj(function(file, enc, fn)
+  // run webpack
+  webpack({
+    entry: './src/enumerable.js',
+    output: {
+      path: __dirname + "/build/js",
+      filename: 'enumerable.js',
+      libraryTarget: 'umd',
+      library: 'Enumerable'
+    }
+  }, function(err, stats) 
     {
-      var _duo = new duo(__dirname);
+      if(err)
+      {
+        throw new gutil.PluginError("webpack", err);
+      }
 
-      _duo.entry(file.path)
-          .standalone('enumerablejs')
-          .run(function(err, src)
-          {
-            if(err) 
-            {
-              return fn(err);
-            }
-            // console.log(typeof(src));
-            // console.log(Object.keys(src));
-            // console.log(typeof(src.code));
-            file.contents = new Buffer(src.code, 'utf8');
+      gutil.log("[webpack]", stats.toString({
+        // output options
+      }));
 
-            fn(null, file);
-          });
-    }))
-    .pipe(gulp.dest('build/js'))
+      callback();
+    });
+});
+
+gulp.task('minify', ['build'], function() 
+{
+  return gulp.src('build/js/enumerable.js')
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('build/js'));
-
 });
-
-// gulp.task('minify', ['compile'], function() 
-// {
-//   var stream = gulp.src('duo/src/enumerable.js')
-//     .pipe(uglify())
-//     .pipe(rename({ suffix: '.min' }))
-//     .pipe(gulp.dest('build/js'));
-
-//     return stream;
-// });
