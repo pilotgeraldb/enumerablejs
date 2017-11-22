@@ -16,7 +16,7 @@ gulp.task('clean', function()
   return del(['build', 'coverage']);
 });
 
-gulp.task('build', ['clean'], function(callback) 
+gulp.task('pack', ['clean'], function(callback) 
 {
   // run webpack
   webpack({
@@ -42,7 +42,7 @@ gulp.task('build', ['clean'], function(callback)
     });
 });
 
-gulp.task('minify', ['build'], function() 
+gulp.task('build', ['pack'], function() 
 {
   return gulp.src('build/js/enumerable.js')
     .pipe(uglify())
