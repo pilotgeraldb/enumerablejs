@@ -2,19 +2,27 @@
   "name": "asenumerable",
   "version": "1.0.8",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
-  "main": "build/js/enumerable.js",
   "dependencies": {},
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "del": "^2.2.2",
+    "duo": "^0.15.7",
     "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "istanbul": "^0.4.5",
     "jasmine": "^2.6.0",
-    "jasmine-core": "^2.6.2"
+    "jasmine-core": "^2.6.2",
+    "requirejs": "^2.3.3",
+    "webpack": "^3.0.0"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "coverage": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",

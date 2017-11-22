@@ -1,6 +1,11 @@
 language: node_js
 node_js:
   - "node"
+after_success:
+  - npm run coverage
+  - npm run report-coverage
 before_script:
   - npm install -g requirejs
   - npm install -g jasmine
+  - npm install -g istanbul
+  - npm install -g bower

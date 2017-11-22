@@ -6,7 +6,6 @@
     "Gerald Burkholder <geraldeburkholder@gmail.com>"
   ],
   "description": "",
-  "main": "/build/js/enumerable.js",
   "license": "MIT",
   "private": false,
   "ignore": [
