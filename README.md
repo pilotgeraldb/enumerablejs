@@ -10,6 +10,11 @@ a JavaScript library that provides linq functions on native JavaScript arrays
 
 ## Getting Started
 
+### yarn
+```bash
+$ yarn add asenumerable
+```
+
 ### bower
 ```bash
 ## install with bower
