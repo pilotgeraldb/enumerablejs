@@ -32,6 +32,18 @@ describe("skip while", function ()
         });
     });
 
+    describe("when no function is passed", function ()
+    {
+        it("should return the collection", function ()
+        {
+            var testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
+
+            var result = testArray.skipWhile();
+
+            expect(result).toEqual(testArray);
+        });
+    });
+
     describe("when an enumerable object has 1 item", function ()
     {
         it("should return everything after the item where the predicate function evaluated to false", function ()

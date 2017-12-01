@@ -17,6 +17,18 @@ describe("take while", function ()
         });
     });
 
+    describe("when no function passed", function ()
+    {
+        it("should return the collection", function ()
+        {
+            var testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
+
+            var result = testArray.takeWhile();
+
+            expect(result).toEqual(testArray);
+        });
+    });
+
     describe("when an enumerable object has multiple strings", function ()
     {
         it("should take items that match a predicate function", function ()
