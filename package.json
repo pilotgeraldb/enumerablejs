@@ -1,8 +1,9 @@
 {
   "name": "asenumerable",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
   "dependencies": {},
+  "main": "src/enumerable.js",
   "devDependencies": {
     "coveralls": "^2.13.1",
     "del": "^2.2.2",
