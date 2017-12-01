@@ -4,14 +4,26 @@ Enumerable.fn.skip = function(count)
 {
     var results = [];
 
-    var canSkip = ((count > 0) && (count < this.collection.length));
+    var hasItems = (count > 0);
+    var validSkipCount = (count < this.collection.length);
+
+    var canSkip = (hasItems && validSkipCount);
 
     if(canSkip)
     {
-        for(var i = (count - 1); i < count; i++)
+        for(var i = 0; i < this.collection.length; i++)
         {
+            if(i < count)
+            {
+                continue;
+            }
+            
             results.push(this.collection[i]);
         }
+    }
+    else
+    {
+        return this;
     }
 
     return results.asEnumerable();
