@@ -17,6 +17,21 @@ describe("take while", function ()
         });
     });
 
+    describe("when an enumerable object has multiple strings", function ()
+    {
+        it("should take items that match a predicate function", function ()
+        {
+            var testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
+
+            var result = testArray.takeWhile(function (i, item, collection)
+            {
+                return (item.length >= i);
+            });
+
+            expect(result).toEqual(new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry"]));
+        });
+    });
+
     describe("when an enumerable object has 1 item", function ()
     {
         it("should take items that match a predicate function", function ()
