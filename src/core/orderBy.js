@@ -12,7 +12,7 @@ Enumerable.fn.orderBy = function(property, fn)
         return null;
     }
 
-    if(this.collection.length == 0)
+    if(this.collection.length === 0)
     {
         return new Enumerable([]);
     }
@@ -21,33 +21,11 @@ Enumerable.fn.orderBy = function(property, fn)
     var hasProperty = (property) ? true : false;
 
     var result = [];
-    var itemType = "string";
 
     var tempArr = this.collection;
 
-    if(hasProperty)
-    {
-        if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0][property]);
-        }
-    }
-    else
-    {
-        if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0]);
-        }
-    }
-
+    var itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
+    
     if(hasFn)
     {
         tempArr = [];

@@ -2,7 +2,9 @@ var Enumerable = require('../enumerable');
 
 Enumerable.fn.count = function(fn)
 {
-    if(fn !== null && fn !== undefined && typeof fn === 'function')
+    var hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
+
+    if(hasFn)
     {
         var results = [];
 

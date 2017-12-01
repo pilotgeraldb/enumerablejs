@@ -15,7 +15,7 @@ function Enumerable(_array)
     {
         this.collection = [];
     }
-};
+}
 
 Enumerable.fn = Enumerable.prototype;
 

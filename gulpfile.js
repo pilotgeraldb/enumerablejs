@@ -9,7 +9,7 @@ var del = require("del");
 var webpack = require("webpack");
 var gutil = require('gulp-util');
 
-gulp.task('default', ['minify']);
+gulp.task('default', ['build']);
 
 gulp.task('clean', function() 
 {

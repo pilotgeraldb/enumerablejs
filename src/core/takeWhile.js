@@ -12,7 +12,7 @@ Enumerable.fn.takeWhile = function(fn)
 
         if(_callbackResult !== true)
         {
-            return results.asEnumerable();;
+            return results.asEnumerable();
         }
         else
         {

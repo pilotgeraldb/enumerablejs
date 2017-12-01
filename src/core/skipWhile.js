@@ -3,8 +3,9 @@ var Enumerable = require('../enumerable');
 Enumerable.fn.skipWhile = function(fn)
 {
     var results = [];
-
-    var canSkip = (fn !== null && fn !== undefined && typeof fn === "function");
+    var hasFn = (fn !== null && fn !== undefined);
+    var FnIsFunction = (hasFn && typeof fn === "function");
+    var canSkip = (hasFn && FnIsFunction);
 
     if(canSkip)
     {
