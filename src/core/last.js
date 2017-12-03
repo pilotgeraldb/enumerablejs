@@ -8,6 +8,6 @@ Enumerable.fn.last = function()
     }
     else
     {
-        throw "sequence contains no elements"
+        throw "sequence contains no elements";
     }
 };

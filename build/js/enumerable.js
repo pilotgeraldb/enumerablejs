@@ -7,7 +7,7 @@
 		exports["Enumerable"] = factory();
 	else
 		root["Enumerable"] = factory();
-})(this, function() {
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -94,7 +94,7 @@ function Enumerable(_array)
     {
         this.collection = [];
     }
-};
+}
 
 Enumerable.fn = Enumerable.prototype;
 
@@ -127,6 +127,7 @@ __webpack_require__(18);
 __webpack_require__(19);
 __webpack_require__(20);
 __webpack_require__(21);
+__webpack_require__(22);
 
 /***/ }),
 /* 2 */
@@ -143,6 +144,42 @@ Array.prototype.asEnumerable = function()
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+Object.prototype.getType = function()
+{    
+	  var typeString = Object.prototype.toString.call(this);
+    
+    if(typeString === '[object Date]')
+    {
+      return 'date';
+    }
+    else if(typeString === '[object String]')
+    {
+      return 'string';
+    }
+    else if(typeString === '[object Number]')
+    {
+      return 'number';
+    }
+    else if(typeString === '[object Boolean]')
+    {
+      return 'boolean';
+    }
+  	else if(typeString === '[object Array]')
+    {
+      return 'array';
+    }
+    else 	if(typeString === '[object Object]')
+    {
+      return 'object';
+    }    
+    
+    return typeString;
+};
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -153,13 +190,15 @@ Enumerable.fn.toArray = function()
 };
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.any = function(fn)
 {
+    var hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
+
     for(var i = 0; i < this.collection.length; i++)
     {
         var item = this.collection[i];
@@ -169,11 +208,11 @@ Enumerable.fn.any = function(fn)
             continue;
         }
 
-        if(fn !== null && fn !== undefined && fn(i, item, this.collection))
+        if(hasFn && fn(i, item, this.collection))
         {
             return true;
         }
-        else if(fn === null || fn === undefined)
+        else if(hasFn)
         {
             if(this !== null && this !== undefined && this.collection.length > 0)
             {
@@ -181,18 +220,21 @@ Enumerable.fn.any = function(fn)
             }
         }
     }
+
     return false;
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.count = function(fn)
 {
-    if(fn !== null && fn !== undefined && typeof fn === 'function')
+    var hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
+
+    if(hasFn)
     {
         var results = [];
 
@@ -215,7 +257,7 @@ Enumerable.fn.count = function(fn)
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -228,13 +270,13 @@ Enumerable.fn.first = function()
     }
     else
     {
-        throw "sequence contains no elements"
+        throw "sequence contains no elements";
     }
 };
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -262,7 +304,7 @@ Enumerable.fn.firstOrDefault = function(fn)
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -275,26 +317,29 @@ Enumerable.fn.last = function()
     }
     else
     {
-        throw "sequence contains no elements"
+        throw "sequence contains no elements";
     }
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.lastOrDefault = function(fn)
 {
+    var hasFn = (fn !== null && fn !== undefined);
+    var FnIsFunction = (hasFn && typeof fn === "function");
+    
     if(this.collection.length > 0)
     {
         return this.collection[this.collection.length - 1];
     }
 
-    if(fn !== null && fn !== undefined)
+    if(hasFn)
     {
-        if(typeof fn === "function")
+        if(FnIsFunction)
         {
             return fn();
         }
@@ -308,7 +353,7 @@ Enumerable.fn.lastOrDefault = function(fn)
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -319,7 +364,7 @@ Enumerable.fn.maximum = function()
 
     function isNumeric(x)
     {
-        return (typeof x === 'number') && (x % 1 === 0);
+        return (x.getType() === 'number') && (x % 1 === 0);
     }
 
     var temp = [];
@@ -341,7 +386,7 @@ Enumerable.fn.maximum = function()
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -352,7 +397,7 @@ Enumerable.fn.minimum = function()
 
     function isNumeric(x)
     {
-        return (typeof x === 'number') && (x % 1 === 0);
+        return (x.getType() === 'number') && (x % 1 === 0);
     }
 
     var temp = [];
@@ -369,11 +414,12 @@ Enumerable.fn.minimum = function()
     {
         result = Math.min.apply(null, temp);
     }
+    
     return result;
 };
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -390,7 +436,7 @@ Enumerable.fn.orderBy = function(property, fn)
         return null;
     }
 
-    if(this.collection.length == 0)
+    if(this.collection.length === 0)
     {
         return new Enumerable([]);
     }
@@ -399,33 +445,11 @@ Enumerable.fn.orderBy = function(property, fn)
     var hasProperty = (property) ? true : false;
 
     var result = [];
-    var itemType = "string";
 
     var tempArr = this.collection;
 
-    if(hasProperty)
-    {
-        if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0][property]);
-        }
-    }
-    else
-    {
-        if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0]);
-        }
-    }
-
+    var itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
+    
     if(hasFn)
     {
         tempArr = [];
@@ -522,7 +546,7 @@ Enumerable.fn.orderBy = function(property, fn)
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -539,7 +563,7 @@ Enumerable.fn.orderByDescending = function(property, fn)
         return null;
     }
 
-    if(this.collection.length == 0)
+    if(this.collection.length === 0)
     {
         return new Enumerable([]);
     }
@@ -548,33 +572,11 @@ Enumerable.fn.orderByDescending = function(property, fn)
     var hasProperty = (property) ? true : false;
 
     var result = [];
-    var itemType = "string";
 
     var tempArr = this.collection;
 
-    if(hasProperty)
-    {
-        if(Object.prototype.toString.call(tempArr[0][property]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0][property]);
-        }
-    }
-    else
-    {
-        if(Object.prototype.toString.call(tempArr[0]) === '[object Date]')
-        {
-            itemType = 'date';
-        }
-        else
-        {
-            itemType = (typeof tempArr[0]);
-        }
-    }
-
+    var itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
+    
     if(hasFn)
     {
         tempArr = [];
@@ -671,7 +673,7 @@ Enumerable.fn.orderByDescending = function(property, fn)
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -687,9 +689,11 @@ Enumerable.fn.select = function(obj)
         if(obj !== null && obj !== undefined && obj.length > 0)
         {
             var _temp = {};
+            
             for(var x = 0; x < obj.length; x++)
             {
                 var prop = obj[x];
+
                 for(var p in item)
                 {
                     if(p === prop)
@@ -698,6 +702,7 @@ Enumerable.fn.select = function(obj)
                     }
                 }
             }
+            
             results.push(_temp);
         }
         else
@@ -710,7 +715,7 @@ Enumerable.fn.select = function(obj)
 };
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -733,13 +738,16 @@ Enumerable.fn.single = function()
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
 
 Enumerable.fn.singleOrDefault = function(fn)
 {
+    var hasFn = (fn !== null && fn !== undefined);
+    var FnIsFunction = (hasFn && typeof fn === "function");
+
     if(this.collection.length == 1)
     {
         return this.collection[0];
@@ -749,9 +757,9 @@ Enumerable.fn.singleOrDefault = function(fn)
         throw "collection contains more than one item";
     }
 
-    if(fn !== null && fn !== undefined)
+    if(hasFn)
     {
-        if(typeof fn === "function")
+        if(FnIsFunction)
         {
             return fn();
         }
@@ -766,7 +774,7 @@ Enumerable.fn.singleOrDefault = function(fn)
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -789,7 +797,7 @@ Enumerable.fn.skip = function(count)
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -797,8 +805,9 @@ var Enumerable = __webpack_require__(0);
 Enumerable.fn.skipWhile = function(fn)
 {
     var results = [];
-
-    var canSkip = (fn !== null && fn !== undefined && typeof fn === "function");
+    var hasFn = (fn !== null && fn !== undefined);
+    var FnIsFunction = (hasFn && typeof fn === "function");
+    var canSkip = (hasFn && FnIsFunction);
 
     if(canSkip)
     {
@@ -818,7 +827,7 @@ Enumerable.fn.skipWhile = function(fn)
 };
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -848,7 +857,7 @@ Enumerable.fn.take = function(count)
 };
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -865,7 +874,7 @@ Enumerable.fn.takeWhile = function(fn)
 
         if(_callbackResult !== true)
         {
-            return results.asEnumerable();;
+            return results.asEnumerable();
         }
         else
         {
@@ -877,7 +886,7 @@ Enumerable.fn.takeWhile = function(fn)
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Enumerable = __webpack_require__(0);
@@ -886,11 +895,14 @@ Enumerable.fn.where = function(fn)
 {
     var results = [];
 
+    var hasFn = (fn !== null && fn !== undefined);
+    var FnIsFunction = (hasFn && typeof fn === "function");
+
     for(var i = 0; i < this.collection.length; i++)
     {
         var item = this.collection[i];
 
-        if(fn !== null && fn !== undefined && fn(i, item, this.collection))
+        if(hasFn && FnIsFunction && fn(i, item, this.collection))
         {
             results.push(item);
         }

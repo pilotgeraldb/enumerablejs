@@ -11,9 +11,11 @@ Enumerable.fn.select = function(obj)
         if(obj !== null && obj !== undefined && obj.length > 0)
         {
             var _temp = {};
+            
             for(var x = 0; x < obj.length; x++)
             {
                 var prop = obj[x];
+
                 for(var p in item)
                 {
                     if(p === prop)
@@ -22,6 +24,7 @@ Enumerable.fn.select = function(obj)
                     }
                 }
             }
+            
             results.push(_temp);
         }
         else

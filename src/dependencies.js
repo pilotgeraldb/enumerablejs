@@ -1,4 +1,5 @@
-require("./core/arrayExtensions");
+require("./extensions/array");
+require("./extensions/object");
 require("./core/toArray");
 require("./core/any");
 require("./core/count");

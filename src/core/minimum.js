@@ -6,7 +6,7 @@ Enumerable.fn.minimum = function()
 
     function isNumeric(x)
     {
-        return (typeof x === 'number') && (x % 1 === 0);
+        return (x !== null && x.getType() === 'number') && (x % 1 === 0);
     }
 
     var temp = [];
@@ -23,5 +23,6 @@ Enumerable.fn.minimum = function()
     {
         result = Math.min.apply(null, temp);
     }
+
     return result;
 };

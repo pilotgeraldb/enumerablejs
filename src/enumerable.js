@@ -1,10 +1,3 @@
-Array.prototype.asEnumerable = function()
-{
-    var e = new Enumerable(this);
-
-    return e;
-};
-
 function Enumerable(_array)
 {
     if(_array)
@@ -15,7 +8,7 @@ function Enumerable(_array)
     {
         this.collection = [];
     }
-};
+}
 
 Enumerable.fn = Enumerable.prototype;
 
