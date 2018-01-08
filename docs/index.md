@@ -1,13 +1,10 @@
 # enumerablejs 
 
-a JavaScript library that provides linq functions on native JavaScript arrays
-
-> this project is still under development and is not completely finished.
-
 ## Getting Started
 
 ### yarn
 ```bash
+## install with yarn
 $ yarn add asenumerable
 ```
 
