@@ -5,6 +5,8 @@ Enumerable.fn.any = function(fn)
     var hasFn = (fn !== null && fn !== undefined);
     var FnIsFunction = (hasFn && typeof fn === "function");
 
+    //adding some new dummy feature here.
+
     if(!hasFn)
     {
         if(this !== null && this !== undefined && this.collection.length > 0)
