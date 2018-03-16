@@ -10,6 +10,8 @@ Enumerable.fn.lastOrDefault = function(fn)
         return this.collection[this.collection.length - 1];
     }
 
+    //this is another feature
+
     if(hasFn)
     {
         if(FnIsFunction)
