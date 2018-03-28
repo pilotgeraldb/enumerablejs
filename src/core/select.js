@@ -7,16 +7,30 @@ Enumerable.fn.select = function(obj)
     function explicit(item, obj)
     {
         var _temp = {};
-            
-        for(var x = 0; x < obj.length; x++)
+        
+        if(obj.length == 1)
         {
-            var prop = obj[x];
-
             for(var p in item)
             {
-                if(p === prop)
+                if(p === obj[0])
                 {
-                    _temp[prop] = item[p];
+                    _temp = item[p];
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for(var x = 0; x < obj.length; x++)
+            {
+                var prop = obj[x];
+
+                for(var p in item)
+                {
+                    if(p === prop)
+                    {
+                        _temp[prop] = item[p];
+                    }
                 }
             }
         }
