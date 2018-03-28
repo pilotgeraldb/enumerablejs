@@ -127,11 +127,15 @@ arr.asEnumerable()
     { 
         return item * item; 
     });
-    
+
 //[1,4,9,16]
 ```
 
 #### select via string array of properties
+
+As of v1.1.1, if a single property is specified in the array `["property_name"]` then the result will not be an object, but an array of the values of that property from each item. 
+
+However if multiple properties are specified in the array `["property_name_a", "property_name_b", "property_name_c"]` the result will be an array of object each containing the specified properties. This is also how single property selection versions prior to v1.1.1.
 
 ``` javascript
 //consider the following array.
