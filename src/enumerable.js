@@ -12,6 +12,18 @@ function Enumerable(_array)
 
 Enumerable.fn = Enumerable.prototype;
 
+Enumerable.Range = function(start, count)
+{
+    var result = [];
+
+    for(var i = 0; i < count; i++)
+    {
+        result[i]  = start + i;
+    }
+
+    return result.asEnumerable();
+};
+
 module.exports = Enumerable;
 
 require('./dependencies');
