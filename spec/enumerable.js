@@ -61,9 +61,19 @@ describe("Enumerable.Range", function ()
 
             var result = Enumerable.Range(1, 10).select(function(i, item, col) { return item * item; });
 
-            console.log(result);
-
             expect(result).toEqual(new Enumerable([1,4,9,16,25,36,49,64,81,100]));
+        });
+    });
+
+    describe("when range is used with negative numbers", function ()
+    {
+        it("it should still work", function ()
+        {
+            var testArray = null;
+
+            var result = Enumerable.Range(-15, 3);
+
+            expect(result).toEqual(new Enumerable([-15,-14,-13]));
         });
     });
 });
