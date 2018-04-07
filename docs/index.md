@@ -358,3 +358,41 @@ Returns the maximum value in a sequence.
 var arr = [];
 var result = arr.asEnumerable().maximum();
 ```
+
+### dropFirst
+
+Drops the first n number of items in a collection
+
+``` javascript
+var arr = [0,1,2,3];
+var result = arr.asEnumerable().dropFirst(2);
+```
+
+### dropLast
+
+Drops the last n number of items in a collection
+
+``` javascript
+var arr = [0,1,2,3];
+var result = arr.asEnumerable().dropLast(2);
+```
+
+### shuffle
+
+Randomly shuffles the collection
+
+``` javascript
+var arr = [0,1,2,3];
+var result = arr.asEnumerable().shuffle();
+```
+
+### except
+
+returns all items except the ones specified in the input collection
+
+``` javascript
+var arr = [0,1,2,3];
+var result = arr.asEnumerable().except([1,3]);
+
+//returns an enumerable containing [0, 2]
+```
