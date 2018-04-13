@@ -54,6 +54,8 @@ var c = b.take(1).count(); //c = 1
 Generates a sequence of integral numbers within a specified range.
 
 ```javascript
+var Enumerable = require("asenumerable");
+
 var result = Enumerable.Range(4, 9);
 //[4,5,6,7,8,9,10,11,12]
 

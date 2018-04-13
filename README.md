@@ -4,7 +4,7 @@
 
 # enumerablejs 
 
-> this project is still under development and is not completely finished. [Documentation available here](https://ralphy15.github.io/enumerablejs/)
+_this project is still under development and is not completely finished. [Documentation available here](https://ralphy15.github.io/enumerablejs/) You can also [try it on RunKit!](https://npm.runkit.com/asenumerable)_
 
 ### yarn
 ```bash
@@ -23,3 +23,4 @@ $ bower install enumerablejs
 ## install with npm
 $ npm install asenumerable
 ```
+
