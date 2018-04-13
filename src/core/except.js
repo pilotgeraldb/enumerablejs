@@ -12,7 +12,7 @@ Enumerable.fn.except = function(arr, fn)
     for(var i = 0; i < this.collection.length; i++)
     {
         var item = this.collection[i];
-        
+
         var contains = false;
 
         for(var x = 0; x < arr.length; x++)
@@ -29,10 +29,21 @@ Enumerable.fn.except = function(arr, fn)
             }
             else
             {
-                if(item2 === item)
+                if(item2.getType() == "object" && item.getType() == "object")
                 {
-                    contains = true;
-                    break;
+                    if(item2.isEqual(item))
+                    {
+                        contains = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    if(item2 === item)
+                    {
+                        contains = true;
+                        break;
+                    }
                 }
             }
         }
