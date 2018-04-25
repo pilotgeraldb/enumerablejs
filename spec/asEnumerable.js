@@ -2,6 +2,30 @@
 
 describe("asEnumerable", function ()
 {
+    describe("when used on a string", function ()
+    {
+        it("should return a character array", function ()
+        {
+            var str = "abcdef";
+
+            var result = str.asEnumerable();
+
+            expect(result).toEqual(new Enumerable(["a", "b", "c", "d", "e", "f"]));
+        });
+    });
+
+    describe("when toString() is called on an enumerable of strings", function ()
+    {
+        it("should return a string", function ()
+        {
+            var str = "abcdef";
+
+            var result = str.asEnumerable().toString();
+
+            expect(result).toEqual("abcdef");
+        });
+    });
+
     describe("when used on an empty array", function ()
     {
         it("should return an empty enumerable object", function ()

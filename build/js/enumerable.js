@@ -91,6 +91,19 @@ function Enumerable(_array)
 
 Enumerable.fn = Enumerable.prototype;
 
+Enumerable.fn.toString = function()
+{
+    var separator = "";
+    var result = "";
+
+    for(var i = 0; i < this.collection.length; i++)
+    {
+        result += separator + this.collection[i];
+    }
+
+    return result;
+};
+
 Enumerable.Range = function(start, count)
 {
     var result = [];
