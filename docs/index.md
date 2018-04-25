@@ -25,7 +25,7 @@ $ npm install asenumerable
 
 ## How to use
 
-On any native javascript array, simply call asEnumerable() followed by subsequent calls to any
+On any native javascript array or string, simply call asEnumerable() followed by subsequent calls to any
 of the methods outlined in this documentation.
 
 The main type for enumerablejs is `Enumerable`. It exposes linq style methods for use on javascript arrays.
