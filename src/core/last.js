@@ -6,8 +6,6 @@ Enumerable.fn.last = function()
     {
         return this.collection[this.collection.length - 1];
     }
-    else
-    {
-        throw "sequence contains no elements";
-    }
+
+    throw new Error('sequence contains no elements');
 };

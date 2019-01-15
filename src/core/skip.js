@@ -17,7 +17,7 @@ Enumerable.fn.skip = function(count)
             {
                 continue;
             }
-            
+
             results.push(this.collection[i]);
         }
     }

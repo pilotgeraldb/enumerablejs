@@ -7,7 +7,7 @@ Enumerable.fn.orderBy = function(property, fn)
         return null;
     }
 
-    if(Object.prototype.toString.call(this.collection) != '[object Array]')
+    if(Object.prototype.toString.call(this.collection) !== '[object Array]')
     {
         return null;
     }
@@ -17,15 +17,15 @@ Enumerable.fn.orderBy = function(property, fn)
         return new Enumerable([]);
     }
 
-    var hasFn = (fn && typeof fn == 'function');
-    var hasProperty = (property) ? true : false;
+    var hasFn = (fn && typeof fn === 'function');
+    var hasProperty = property !== undefined && property !== null;
 
     var result = [];
 
     var tempArr = this.collection;
 
     var itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
-    
+
     if(hasFn)
     {
         tempArr = [];
@@ -40,7 +40,7 @@ Enumerable.fn.orderBy = function(property, fn)
         }
     }
 
-    if(itemType == "string")
+    if(itemType === 'string')
     {
         result = tempArr.sort(function(a, b)
         {
@@ -60,7 +60,7 @@ Enumerable.fn.orderBy = function(property, fn)
             return 0;
         });
     }
-    else if(itemType == 'number')
+    else if(itemType === 'number')
     {
         result = tempArr.sort(function(a, b)
         {
@@ -68,13 +68,11 @@ Enumerable.fn.orderBy = function(property, fn)
             {
                 return a[property] - b[property];
             }
-            else
-            {
-                return a - b;
-            }
+
+            return a - b;
         });
     }
-    else if(itemType == 'date')
+    else if(itemType === 'date')
     {
         result = tempArr.sort(function(a, b)
         {
@@ -82,18 +80,16 @@ Enumerable.fn.orderBy = function(property, fn)
             {
                 return new Date(a[property]) - new Date(b[property]);
             }
-            else
-            {
-                return new Date(a) - new Date(b);
-            }
+
+            return new Date(a) - new Date(b);
         });
     }
-    else if(itemType == 'boolean')
+    else if(itemType === 'boolean')
     {
         result = tempArr.sort(function(x, y)
         {
             // true values first
-            if(x === y) 
+            if(x === y)
             {
                 return 0;
             }
@@ -101,20 +97,18 @@ Enumerable.fn.orderBy = function(property, fn)
             {
                 return 1;
             }
-            else
-            {
-                return -1;
-            }
+
+            return -1;
         });
     }
-    else if(itemType == 'array')
+    else if(itemType === 'array')
     {
-        //not supported
+        // not supported
         result = this.collection;
     }
-    else if(itemType == 'object')
+    else if(itemType === 'object')
     {
-        //not supported
+        // not supported
         result = this.collection;
     }
 

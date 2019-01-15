@@ -5,7 +5,7 @@ Enumerable.fn.where = function(fn)
     var results = [];
 
     var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === "function");
+    var FnIsFunction = (hasFn && typeof fn === 'function');
 
     for(var i = 0; i < this.collection.length; i++)
     {

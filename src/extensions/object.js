@@ -1,4 +1,4 @@
-Object.prototype.getType = function()
+Object.prototype.getType = function ()
 {
   var typeString = Object.prototype.toString.call(this);
 
@@ -26,7 +26,7 @@ Object.prototype.getType = function()
   {
     return 'object';
   }
-  else if(typeof this === "function")
+  else if(typeof this === 'function')
   {
     return 'function';
   }
@@ -34,14 +34,14 @@ Object.prototype.getType = function()
   return typeString;
 };
 
-Object.prototype.isEqual = function(object2, order_matters)
+Object.prototype.isEqual = function (object2, order_matters)
 {
   var keys1 = Object.keys(this),
     keys2 = Object.keys(object2),
     i, key;
 
   // Test 1: Same number of elements
-  if(keys1.length != keys2.length)
+  if(keys1.length !== keys2.length)
   {
     return false;
   }
@@ -59,7 +59,7 @@ Object.prototype.isEqual = function(object2, order_matters)
   // Test 2: Same keys
   for(i = 0; i < keys1.length; i++)
   {
-    if(keys1[i] != keys2[i])
+    if(keys1[i] !== keys2[i])
     {
       return false;
     }
@@ -69,7 +69,7 @@ Object.prototype.isEqual = function(object2, order_matters)
   for(i = 0; i < keys1.length; i++)
   {
     key = keys1[i];
-    if(this[key] != object2[key])
+    if(this[key] !== object2[key])
     {
       return false;
     }

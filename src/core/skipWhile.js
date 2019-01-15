@@ -4,7 +4,7 @@ Enumerable.fn.skipWhile = function(fn)
 {
     var results = [];
     var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === "function");
+    var FnIsFunction = (hasFn && typeof fn === 'function');
     var canSkip = (hasFn && FnIsFunction);
     var hasItems = this.collection.length > 0;
 
@@ -16,7 +16,7 @@ Enumerable.fn.skipWhile = function(fn)
     if(canSkip && hasItems)
     {
         var end = this.collection.length;
-        
+
         for(var i = 0; i < this.collection.length; i++)
         {
             var item = this.collection[i];

@@ -2,7 +2,7 @@ var Enumerable = require('../enumerable');
 
 Enumerable.fn.take = function(count)
 {
-    if(this.collection.length == 0)
+    if(this.collection.length === 0)
     {
         return this;
     }
@@ -18,8 +18,6 @@ Enumerable.fn.take = function(count)
 
         return results.asEnumerable();
     }
-    else
-    {
-        return this;
-    }
+
+    return this;
 };

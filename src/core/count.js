@@ -20,8 +20,6 @@ Enumerable.fn.count = function(fn)
 
         return results.length;
     }
-    else
-    {
-        return this.collection.length;
-    }
+
+    return this.collection.length;
 };

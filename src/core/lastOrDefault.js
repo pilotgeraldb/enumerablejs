@@ -3,8 +3,8 @@ var Enumerable = require('../enumerable');
 Enumerable.fn.lastOrDefault = function(fn)
 {
     var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === "function");
-    
+    var FnIsFunction = (hasFn && typeof fn === 'function');
+
     if(this.collection.length > 0)
     {
         return this.collection[this.collection.length - 1];
@@ -16,10 +16,8 @@ Enumerable.fn.lastOrDefault = function(fn)
         {
             return fn();
         }
-        else
-        {
-            return fn;
-        }
+
+        return fn;
     }
 
     return null;

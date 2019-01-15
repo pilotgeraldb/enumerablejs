@@ -3,15 +3,15 @@ var Enumerable = require('../enumerable');
 Enumerable.fn.singleOrDefault = function(fn)
 {
     var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === "function");
+    var FnIsFunction = (hasFn && typeof fn === 'function');
 
-    if(this.collection.length == 1)
+    if(this.collection.length === 1)
     {
         return this.collection[0];
     }
     else if(this.length > 1)
     {
-        throw "collection contains more than one item";
+        throw new Error('collection contains more than one item');
     }
 
     if(hasFn)
@@ -20,10 +20,7 @@ Enumerable.fn.singleOrDefault = function(fn)
         {
             return fn();
         }
-        else
-        {
-            return fn;
-        }
+        return fn;
     }
 
     return null;

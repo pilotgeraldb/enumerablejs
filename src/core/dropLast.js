@@ -11,8 +11,5 @@ Enumerable.fn.dropLast = function(count)
     {
         return new Enumerable(this.collection.splice(0, this.collection.length - count));
     }
-    else
-    {
-        return new Enumerable();
-    }
+    return new Enumerable();
 };

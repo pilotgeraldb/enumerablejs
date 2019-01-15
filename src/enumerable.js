@@ -14,8 +14,8 @@ Enumerable.fn = Enumerable.prototype;
 
 Enumerable.fn.toString = function()
 {
-    var separator = "";
-    var result = "";
+    var separator = '';
+    var result = '';
 
     for(var i = 0; i < this.collection.length; i++)
     {
@@ -31,7 +31,7 @@ Enumerable.Range = function(start, count)
 
     for(var i = 0; i < count; i++)
     {
-        result[i]  = start + i;
+        result[i] = start + i;
     }
 
     return result.asEnumerable();

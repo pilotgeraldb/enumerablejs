@@ -7,8 +7,8 @@ Enumerable.fn.select = function(obj)
     function explicit(item, obj)
     {
         var _temp = {};
-        
-        if(obj.length == 1)
+
+        if(obj.length === 1)
         {
             for(var p in item)
             {
@@ -25,16 +25,16 @@ Enumerable.fn.select = function(obj)
             {
                 var prop = obj[x];
 
-                for(var p in item)
+                for(var _p in item)
                 {
-                    if(p === prop)
+                    if(_p === prop)
                     {
-                        _temp[prop] = item[p];
+                        _temp[prop] = item[_p];
                     }
                 }
             }
         }
-        
+
         results.push(_temp);
     }
 
@@ -49,7 +49,7 @@ Enumerable.fn.select = function(obj)
 
         if(obj !== null && obj !== undefined && obj.length > 0)
         {
-            if(obj.getType() == 'function')
+            if(obj.getType() === 'function')
             {
                 funcEval(obj, i, item, this.collection);
             }

@@ -11,8 +11,6 @@ Enumerable.fn.dropFirst = function(count)
     {
         return new Enumerable(this.collection.splice(this.collection.length - count, count));
     }
-    else
-    {
-        return new Enumerable();
-    }
+
+    return new Enumerable();
 };

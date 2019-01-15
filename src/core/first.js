@@ -6,8 +6,6 @@ Enumerable.fn.first = function()
     {
         return this.collection[0];
     }
-    else
-    {
-        throw "sequence contains no elements";
-    }
+
+    throw new Error('sequence contains no elements');
 };

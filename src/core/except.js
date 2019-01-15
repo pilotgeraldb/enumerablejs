@@ -19,7 +19,7 @@ Enumerable.fn.except = function(arr, fn)
         {
             var item2 = arr[x];
 
-            if(fn && fn.getType() === "function")
+            if(fn && fn.getType() === 'function')
             {
                 if(fn(item, item2) === true)
                 {
@@ -29,7 +29,7 @@ Enumerable.fn.except = function(arr, fn)
             }
             else
             {
-                if(item2.getType() == "object" && item.getType() == "object")
+                if(item2.getType() === 'object' && item.getType() === 'object')
                 {
                     if(item2.isEqual(item))
                     {

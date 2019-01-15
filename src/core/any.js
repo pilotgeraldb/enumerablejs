@@ -3,7 +3,7 @@ var Enumerable = require('../enumerable');
 Enumerable.fn.any = function(fn)
 {
     var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === "function");
+    var FnIsFunction = (hasFn && typeof fn === 'function');
 
     if(!hasFn)
     {
@@ -26,7 +26,6 @@ Enumerable.fn.any = function(fn)
         {
             return true;
         }
-        
     }
 
     return false;
