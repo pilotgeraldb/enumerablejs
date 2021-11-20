@@ -2,33 +2,22 @@
   "name": "asenumerable",
   "version": "1.2.0",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
-  "dependencies": {},
-  "main": "src/enumerable.js",
+  "source": "src/enumerable.js",
+  "outputFormat": "commonjs",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
     "coveralls": "^3.0.2",
-    "del": "^2.2.2",
-    "eslint": "^5.12.0",
+    "eslint": "^8.2.0",
     "eslint-loader": "^2.1.1",
-    "gulp": "^4.0.0",
-    "gulp-add-src": "^1.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
     "istanbul": "^0.4.5",
     "jasmine": "^2.6.0",
     "jasmine-core": "^2.6.2",
-    "yargs": "^12.0.5"
+    "parcel": "^2.0.1"
   },
   "scripts": {
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
     "coverage": "istanbul cover node_modules/jasmine/bin/jasmine.js",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "build": "webpack --env prod",
-    "build-dev": "webpack"
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
