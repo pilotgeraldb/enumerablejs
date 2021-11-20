@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("minimum", function ()
 {
@@ -6,9 +6,9 @@ describe("minimum", function ()
     {
         it("should return the minimum integer value within an enumerable object", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, 1, 2, null]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, 1, 2, null]);
 
-            var result = testArray.minimum();
+            let result = testArray.minimum();
 
             expect(result).toEqual(1);
         });
@@ -18,9 +18,9 @@ describe("minimum", function ()
     {
         it("should return null", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.minimum();
+            let result = testArray.minimum();
 
             expect(result).toEqual(null);
         });

@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("skip while", function ()
 {
@@ -6,9 +6,9 @@ describe("skip while", function ()
     {
         it("should return everything after the item where the predicate function evaluated to false", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }, { name: '9012', id: 4 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }, { name: '9012', id: 4 }]);
 
-            var result = testArray.skipWhile(function (i, item, collection)
+            let result = testArray.skipWhile(function (i, item, collection)
             {
                 return (item.id < 3);
             });
@@ -21,9 +21,9 @@ describe("skip while", function ()
     {
         it("should return everything after the item where the predicate function evaluated to false", function ()
         {
-            var testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
+            let testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
 
-            var result = testArray.skipWhile(function (i, item, collection)
+            let result = testArray.skipWhile(function (i, item, collection)
             {
                 return (item >= 80);
             });
@@ -36,9 +36,9 @@ describe("skip while", function ()
     {
         it("should return the collection", function ()
         {
-            var testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
+            let testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
 
-            var result = testArray.skipWhile();
+            let result = testArray.skipWhile();
 
             expect(result).toEqual(testArray);
         });
@@ -48,9 +48,9 @@ describe("skip while", function ()
     {
         it("should return everything after the item where the predicate function evaluated to false", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.skipWhile(function (i, item, collection)
+            let result = testArray.skipWhile(function (i, item, collection)
             {
                 return (item.name === "test");
             });
@@ -63,9 +63,9 @@ describe("skip while", function ()
     {
         it("should return an empty enumerable", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.skipWhile(function (i, item, collection)
+            let result = testArray.skipWhile(function (i, item, collection)
             {
                 return (item.name === "test");
             });
@@ -78,9 +78,9 @@ describe("skip while", function ()
     {
         it("should return everything after the item where the predicate function evaluated to false", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.skipWhile(function (i, item, collection)
+            let result = testArray.skipWhile(function (i, item, collection)
             {
                 return (item.id < 3);
             });

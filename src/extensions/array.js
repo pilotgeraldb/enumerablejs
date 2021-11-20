@@ -1,8 +1,8 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Array.prototype.asEnumerable = function ()
 {
-    var e = new Enumerable(this);
+    let e = new Enumerable(this);
 
     return e;
 };

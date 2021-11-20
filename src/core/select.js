@@ -1,16 +1,16 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.select = function(obj)
 {
-    var results = [];
+    let results = [];
 
     function explicit(item, obj)
     {
-        var _temp = {};
+        let _temp = {};
 
         if(obj.length === 1)
         {
-            for(var p in item)
+            for(let p in item)
             {
                 if(p === obj[0])
                 {
@@ -21,11 +21,11 @@ Enumerable.fn.select = function(obj)
         }
         else
         {
-            for(var x = 0; x < obj.length; x++)
+            for(let x = 0; x < obj.length; x++)
             {
-                var prop = obj[x];
+                let prop = obj[x];
 
-                for(var _p in item)
+                for(let _p in item)
                 {
                     if(_p === prop)
                     {
@@ -43,9 +43,9 @@ Enumerable.fn.select = function(obj)
         results.push(obj(i, item, col));
     }
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
-        var item = this.collection[i];
+        let item = this.collection[i];
 
         if(obj !== null && obj !== undefined && obj.length > 0)
         {

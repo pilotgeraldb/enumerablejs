@@ -1,4 +1,4 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.except = function(arr, fn)
 {
@@ -7,17 +7,17 @@ Enumerable.fn.except = function(arr, fn)
         return new Enumerable(this.collection);
     }
 
-    var result = [];
+    let result = [];
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
-        var item = this.collection[i];
+        let item = this.collection[i];
 
-        var contains = false;
+        let contains = false;
 
-        for(var x = 0; x < arr.length; x++)
+        for(let x = 0; x < arr.length; x++)
         {
-            var item2 = arr[x];
+            let item2 = arr[x];
 
             if(fn && fn.getType() === 'function')
             {

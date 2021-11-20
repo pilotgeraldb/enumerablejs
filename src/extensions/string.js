@@ -1,10 +1,10 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 String.prototype.asEnumerable = function()
 {
-    var arr = [];
+    let arr = [];
 
-    for(var i = 0; i < this.length; i++)
+    for(let i = 0; i < this.length; i++)
     {
         arr[i] = this.charAt(i);
     }

@@ -1,4 +1,4 @@
-var Enumerable = require('../src/enumerable');
+let Enumerable = require('../src/enumerable');
 
 describe("Enumerable", function ()
 {
@@ -6,9 +6,9 @@ describe("Enumerable", function ()
     {
         it("should return an empty enumerable object", function ()
         {
-            var testArray = [];
+            let testArray = [];
 
-            var result = new Enumerable(testArray);
+            let result = new Enumerable(testArray);
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -18,9 +18,9 @@ describe("Enumerable", function ()
     {
         it("should return an empty enumerable object", function ()
         {
-            var testArray = null;
+            let testArray = null;
 
-            var result = new Enumerable(testArray);
+            let result = new Enumerable(testArray);
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -33,9 +33,9 @@ describe("Enumerable.Range", function ()
     {
         it("it should return the array [0,1,2,3,4,5,6,7,8,9,10]", function ()
         {
-            var testArray = null;
+            let testArray = null;
 
-            var result = Enumerable.Range(0, 10);
+            let result = Enumerable.Range(0, 10);
 
             expect(result).toEqual(new Enumerable([0,1,2,3,4,5,6,7,8,9]));
         });
@@ -45,9 +45,9 @@ describe("Enumerable.Range", function ()
     {
         it("it should return the array [4,5,6,7,8,9,10,11,12,13]", function ()
         {
-            var testArray = null;
+            let testArray = null;
 
-            var result = Enumerable.Range(4, 9);
+            let result = Enumerable.Range(4, 9);
 
             expect(result).toEqual(new Enumerable([4,5,6,7,8,9,10,11,12]));
         });
@@ -57,9 +57,9 @@ describe("Enumerable.Range", function ()
     {
         it("it should [1,4,9,16,25,36,49,64,81,100]", function ()
         {
-            var testArray = null;
+            let testArray = null;
 
-            var result = Enumerable.Range(1, 10).select(function(i, item, col) { return item * item; });
+            let result = Enumerable.Range(1, 10).select(function(i, item, col) { return item * item; });
 
             expect(result).toEqual(new Enumerable([1,4,9,16,25,36,49,64,81,100]));
         });
@@ -69,9 +69,9 @@ describe("Enumerable.Range", function ()
     {
         it("it should still work", function ()
         {
-            var testArray = null;
+            let testArray = null;
 
-            var result = Enumerable.Range(-15, 3);
+            let result = Enumerable.Range(-15, 3);
 
             expect(result).toEqual(new Enumerable([-15,-14,-13]));
         });

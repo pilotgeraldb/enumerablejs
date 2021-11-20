@@ -1,21 +1,21 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.takeWhile = function(fn)
 {
-    var results = [];
+    let results = [];
 
-    var hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
+    let hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
 
     if(!hasFn)
     {
         return this;
     }
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
-        var item = this.collection[i];
+        let item = this.collection[i];
 
-        var _callbackResult = fn(i, item, this.collection);
+        let _callbackResult = fn(i, item, this.collection);
 
         if(_callbackResult === true)
         {

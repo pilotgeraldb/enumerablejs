@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("singleOrDefault", function ()
 {
@@ -6,9 +6,9 @@ describe("singleOrDefault", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.singleOrDefault();
+            let result = testArray.singleOrDefault();
 
             expect(result).toEqual({ name: 'test', id: 1 });
         });
@@ -18,9 +18,9 @@ describe("singleOrDefault", function ()
     {
         it("should return null", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.singleOrDefault();
+            let result = testArray.singleOrDefault();
 
             expect(result).toEqual(null);
         });
@@ -30,9 +30,9 @@ describe("singleOrDefault", function ()
     {
         it("should return the item in the enumerable object", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.singleOrDefault(function () { return 3; });
+            let result = testArray.singleOrDefault(function () { return 3; });
 
             expect(result).toEqual({ name: 'test', id: 1 });
         });
@@ -42,9 +42,9 @@ describe("singleOrDefault", function ()
     {
         it("should return the item in the enumerable object", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.singleOrDefault(3);
+            let result = testArray.singleOrDefault(3);
 
             expect(result).toEqual({ name: 'test', id: 1 });
         });
@@ -54,9 +54,9 @@ describe("singleOrDefault", function ()
     {
         it("should return default constant", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.singleOrDefault(3);
+            let result = testArray.singleOrDefault(3);
 
             expect(result).toEqual(3);
         });
@@ -66,9 +66,9 @@ describe("singleOrDefault", function ()
     {
         it("return the value of the default function", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.singleOrDefault(function () { return 3; });
+            let result = testArray.singleOrDefault(function () { return 3; });
 
             expect(result).toEqual(3);
         });
@@ -78,9 +78,9 @@ describe("singleOrDefault", function ()
     {
         it("should return null", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.singleOrDefault();
+            let result = testArray.singleOrDefault();
 
             expect(result).toEqual(null);
         });

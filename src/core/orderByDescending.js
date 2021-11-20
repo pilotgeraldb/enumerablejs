@@ -1,4 +1,4 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.orderByDescending = function(property, fn)
 {
@@ -17,21 +17,21 @@ Enumerable.fn.orderByDescending = function(property, fn)
         return new Enumerable([]);
     }
 
-    var hasFn = (fn && typeof fn === 'function');
-    var hasProperty = property !== undefined && property !== null;
+    let hasFn = (fn && typeof fn === 'function');
+    let hasProperty = property !== undefined && property !== null;
 
-    var result = [];
+    let result = [];
 
-    var tempArr = this.collection;
+    let tempArr = this.collection;
 
-    var itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
+    let itemType = (hasProperty) ? tempArr[0][property].getType() : tempArr[0].getType();
 
     if(hasFn)
     {
         tempArr = [];
-        for(var i = 0; i < this.collection.length; i++)
+        for(let i = 0; i < this.collection.length; i++)
         {
-            var v = fn(this.collection[i]);
+            let v = fn(this.collection[i]);
 
             if(v)
             {
@@ -44,8 +44,8 @@ Enumerable.fn.orderByDescending = function(property, fn)
     {
         result = tempArr.sort(function(a, b)
         {
-            var propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
-            var propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
+            let propA_Value = (hasProperty) ? a[property].toUpperCase() : a.toUpperCase();
+            let propB_Value = (hasProperty) ? b[property].toUpperCase() : b.toUpperCase();
 
             if(propA_Value < propB_Value)
             {

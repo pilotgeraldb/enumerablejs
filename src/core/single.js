@@ -1,4 +1,4 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.single = function()
 {

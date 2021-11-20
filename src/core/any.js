@@ -1,9 +1,9 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.any = function(fn)
 {
-    var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === 'function');
+    let hasFn = (fn !== null && fn !== undefined);
+    let FnIsFunction = (hasFn && typeof fn === 'function');
 
     if(!hasFn)
     {
@@ -13,9 +13,9 @@ Enumerable.fn.any = function(fn)
         }
     }
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
-        var item = this.collection[i];
+        let item = this.collection[i];
 
         if(item === null || item === undefined)
         {
