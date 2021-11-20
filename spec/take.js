@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("take", function ()
 {
@@ -6,9 +6,9 @@ describe("take", function ()
     {
         it("should only take specified number of items from the beginning of the collection", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.take(2);
+            let result = testArray.take(2);
 
             expect(result).toEqual(new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }]));
         });
@@ -18,9 +18,9 @@ describe("take", function ()
     {
         it("should return empty enumerable", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.take(2);
+            let result = testArray.take(2);
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -30,9 +30,9 @@ describe("take", function ()
     {
         it("should return current enumerable", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.take(50);
+            let result = testArray.take(50);
 
             expect(result).toEqual(testArray);
         });

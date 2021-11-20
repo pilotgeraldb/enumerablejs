@@ -12,15 +12,8 @@ _this project is still under development and is not completely finished. [Docume
 $ yarn add asenumerable
 ```
 
-### bower
-```bash
-## install with bower
-$ bower install enumerablejs
-```
-
 ### npm
 ```bash
 ## install with npm
 $ npm install asenumerable
 ```
-

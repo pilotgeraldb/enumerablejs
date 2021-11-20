@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("take while", function ()
 {
@@ -6,9 +6,9 @@ describe("take while", function ()
     {
         it("should take items that match a predicate function", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.takeWhile(function (i, item, collection)
+            let result = testArray.takeWhile(function (i, item, collection)
             {
                 return (item.name === "test");
             });
@@ -21,9 +21,9 @@ describe("take while", function ()
     {
         it("should return the collection", function ()
         {
-            var testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
+            let testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
 
-            var result = testArray.takeWhile();
+            let result = testArray.takeWhile();
 
             expect(result).toEqual(testArray);
         });
@@ -33,9 +33,9 @@ describe("take while", function ()
     {
         it("should take items that match a predicate function", function ()
         {
-            var testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
+            let testArray = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
 
-            var result = testArray.takeWhile(function (i, item, collection)
+            let result = testArray.takeWhile(function (i, item, collection)
             {
                 return (item.length >= i);
             });
@@ -48,9 +48,9 @@ describe("take while", function ()
     {
         it("should take items that match a predicate function", function ()
         {
-            var testArray = [{ name: 'test', id: 1 }];
+            let testArray = [{ name: 'test', id: 1 }];
 
-            var result = testArray.asEnumerable().takeWhile(function (i, item, collection)
+            let result = testArray.asEnumerable().takeWhile(function (i, item, collection)
             {
                 return (item.name === "test");
             });
@@ -63,9 +63,9 @@ describe("take while", function ()
     {
         it("should return an empty enumerable", function ()
         {
-            var testArray = [];
+            let testArray = [];
 
-            var result = testArray.asEnumerable().takeWhile(function (i, item, collection)
+            let result = testArray.asEnumerable().takeWhile(function (i, item, collection)
             {
                 return (item.name === "test");
             });

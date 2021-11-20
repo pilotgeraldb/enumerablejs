@@ -1,4 +1,4 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.take = function(count)
 {
@@ -9,9 +9,9 @@ Enumerable.fn.take = function(count)
 
     if(this.collection.length > count)
     {
-        var results = [];
+        let results = [];
 
-        for(var i = 0; i < count; i++)
+        for(let i = 0; i < count; i++)
         {
             results.push(this.collection[i]);
         }

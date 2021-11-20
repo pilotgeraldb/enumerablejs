@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("asEnumerable", function ()
 {
@@ -6,9 +6,9 @@ describe("asEnumerable", function ()
     {
         it("should return a character array", function ()
         {
-            var str = "abcdef";
+            let str = "abcdef";
 
-            var result = str.asEnumerable();
+            let result = str.asEnumerable();
 
             expect(result).toEqual(new Enumerable(["a", "b", "c", "d", "e", "f"]));
         });
@@ -18,9 +18,9 @@ describe("asEnumerable", function ()
     {
         it("should return a string", function ()
         {
-            var str = "abcdef";
+            let str = "abcdef";
 
-            var result = str.asEnumerable().toString();
+            let result = str.asEnumerable().toString();
 
             expect(result).toEqual("abcdef");
         });
@@ -30,9 +30,9 @@ describe("asEnumerable", function ()
     {
         it("should return an empty enumerable object", function ()
         {
-            var testArray = [];
+            let testArray = [];
 
-            var result = testArray.asEnumerable();
+            let result = testArray.asEnumerable();
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -42,9 +42,9 @@ describe("asEnumerable", function ()
     {
         it("should return an enumerable object with that 1 item", function ()
         {
-            var testArray = [{ name: 'test', id: 1 }];
+            let testArray = [{ name: 'test', id: 1 }];
 
-            var result = testArray.asEnumerable();
+            let result = testArray.asEnumerable();
 
             expect(result).toEqual(new Enumerable([{ name: 'test', id: 1 }]));
         });
@@ -54,9 +54,9 @@ describe("asEnumerable", function ()
     {
         it("should return an enumerable object with those 3 items", function ()
         {
-            var testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
+            let testArray = [{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }];
 
-            var result = testArray.asEnumerable();
+            let result = testArray.asEnumerable();
 
             expect(result).toEqual(new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]));
         });

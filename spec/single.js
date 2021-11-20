@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("single", function ()
 {
@@ -6,9 +6,9 @@ describe("single", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.single();
+            let result = testArray.single();
 
             expect(result).toEqual({ name: 'test', id: 1 });
         });
@@ -18,9 +18,9 @@ describe("single", function ()
     {
         it("should throw an exception", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = false;
+            let result = false;
 
             try
             {
@@ -39,9 +39,9 @@ describe("single", function ()
     {
         it("should throw an exception", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = false;
+            let result = false;
 
             try
             {

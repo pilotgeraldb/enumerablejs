@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("where", function ()
 {
@@ -6,9 +6,9 @@ describe("where", function ()
     {
         it("should return an enumerable object", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.where(function (i, item, collection)
+            let result = testArray.where(function (i, item, collection)
             {
                 return item.name === "test";
             });

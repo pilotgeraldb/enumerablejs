@@ -1,16 +1,16 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.count = function(fn)
 {
-    var hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
+    let hasFn = (fn !== null && fn !== undefined && typeof fn === 'function');
 
     if(hasFn)
     {
-        var results = [];
+        let results = [];
 
-        for(var i = 0; i < this.collection.length; i++)
+        for(let i = 0; i < this.collection.length; i++)
         {
-            var item = this.collection[i];
+            let item = this.collection[i];
 
             if(fn(i, item, this.collection))
             {

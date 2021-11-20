@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("select", function ()
 {
@@ -6,9 +6,9 @@ describe("select", function ()
     {
         it("it should return 3 value types", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.select(["name"]);
+            let result = testArray.select(["name"]);
 
             expect(result).toEqual(new Enumerable(["test", "1234", "5678"]));
         });
@@ -18,9 +18,9 @@ describe("select", function ()
     {
         it("it should return 3 objects containing only the selected fields", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1, x:1 }, { name: '1234', id: 2, x:1 }, { name: '5678', id: 3, x:1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1, x:1 }, { name: '1234', id: 2, x:1 }, { name: '5678', id: 3, x:1 }]);
 
-            var result = testArray.select(["name", "id"]);
+            let result = testArray.select(["name", "id"]);
 
             expect(result).toEqual(new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]));
         });
@@ -30,9 +30,9 @@ describe("select", function ()
     {
         it("it should return 1 value type", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.select(["name"]);
+            let result = testArray.select(["name"]);
 
             expect(result).toEqual(new Enumerable(["test"]));
         });
@@ -42,9 +42,9 @@ describe("select", function ()
     {
         it("should return an empty enumerable object", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.select(["name"]);
+            let result = testArray.select(["name"]);
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -54,9 +54,9 @@ describe("select", function ()
     {
         it("it should return projection", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.select(function(i, item, col)
+            let result = testArray.select(function(i, item, col)
                         {
                             return { name: item.name };
                         });
@@ -69,9 +69,9 @@ describe("select", function ()
     {
         it("it should return an empty enumerable object", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.select(function(i, item, col)
+            let result = testArray.select(function(i, item, col)
                         {
                             return { name: item.name };
                         });

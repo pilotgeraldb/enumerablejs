@@ -1,6 +1,6 @@
 Object.prototype.getType = function ()
 {
-  var typeString = Object.prototype.toString.call(this);
+  let typeString = Object.prototype.toString.call(this);
 
   if(typeString === '[object Date]')
   {
@@ -36,7 +36,7 @@ Object.prototype.getType = function ()
 
 Object.prototype.isEqual = function (object2, order_matters)
 {
-  var keys1 = Object.keys(this),
+  let keys1 = Object.keys(this),
     keys2 = Object.keys(object2),
     i, key;
 
