@@ -1,6 +1,6 @@
 {
   "name": "asenumerable",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "a JavaScript library that provides linq functions on native JavaScript arrays",
   "source": "src/enumerable.js",
   "outputFormat": "commonjs",
