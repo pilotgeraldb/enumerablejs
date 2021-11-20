@@ -1,15 +1,15 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.where = function(fn)
 {
-    var results = [];
+    let results = [];
 
-    var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === 'function');
+    let hasFn = (fn !== null && fn !== undefined);
+    let FnIsFunction = (hasFn && typeof fn === 'function');
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
-        var item = this.collection[i];
+        let item = this.collection[i];
 
         if(hasFn && FnIsFunction && fn(i, item, this.collection))
         {

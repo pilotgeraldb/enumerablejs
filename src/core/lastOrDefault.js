@@ -1,9 +1,9 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.lastOrDefault = function(fn)
 {
-    var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === 'function');
+    let hasFn = (fn !== null && fn !== undefined);
+    let FnIsFunction = (hasFn && typeof fn === 'function');
 
     if(this.collection.length > 0)
     {

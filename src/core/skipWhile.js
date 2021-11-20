@@ -1,12 +1,12 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.skipWhile = function(fn)
 {
-    var results = [];
-    var hasFn = (fn !== null && fn !== undefined);
-    var FnIsFunction = (hasFn && typeof fn === 'function');
-    var canSkip = (hasFn && FnIsFunction);
-    var hasItems = this.collection.length > 0;
+    let results = [];
+    let hasFn = (fn !== null && fn !== undefined);
+    let FnIsFunction = (hasFn && typeof fn === 'function');
+    let canSkip = (hasFn && FnIsFunction);
+    let hasItems = this.collection.length > 0;
 
     if(!hasFn || !FnIsFunction)
     {
@@ -15,12 +15,12 @@ Enumerable.fn.skipWhile = function(fn)
 
     if(canSkip && hasItems)
     {
-        var end = this.collection.length;
+        let end = this.collection.length;
 
-        for(var i = 0; i < this.collection.length; i++)
+        for(let i = 0; i < this.collection.length; i++)
         {
-            var item = this.collection[i];
-            var _callbackResult = fn(i, item, this.collection);
+            let item = this.collection[i];
+            let _callbackResult = fn(i, item, this.collection);
 
             if(_callbackResult === true)
             {

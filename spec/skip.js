@@ -1,4 +1,4 @@
-var Enumerable = require('../src/enumerable');
+let Enumerable = require('../src/enumerable');
 
 describe("skip", function ()
 {
@@ -6,9 +6,9 @@ describe("skip", function ()
     {
         it("should skip specified number of items and return the remaining items", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.skip(2);
+            let result = testArray.skip(2);
 
             expect(result).toEqual(new Enumerable([{ name: '5678', id: 3 }]));
         });
@@ -18,9 +18,9 @@ describe("skip", function ()
     {
         it("should skip specified number of items and return the remaining items", function ()
         {
-            var testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
+            let testArray = new Enumerable([98, 92, 85, 82, 70, 59, 56]);
 
-            var result = testArray.skip(3);
+            let result = testArray.skip(3);
 
             expect(result).toEqual(new Enumerable([82, 70, 59, 56]));
         });
@@ -30,9 +30,9 @@ describe("skip", function ()
     {
         it("should return empty enumerable", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.skip(2);
+            let result = testArray.skip(2);
 
             expect(result).toEqual(new Enumerable([]));
         });
@@ -42,9 +42,9 @@ describe("skip", function ()
     {
         it("should return current enumerable", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.skip(50);
+            let result = testArray.skip(50);
 
             expect(result).toEqual(testArray);
         });

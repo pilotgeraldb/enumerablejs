@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("lastOrDefault", function ()
 {
@@ -6,9 +6,9 @@ describe("lastOrDefault", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.lastOrDefault();
+            let result = testArray.lastOrDefault();
 
             expect(result).toEqual({ name: 'test', id: 1 });
         });
@@ -18,9 +18,9 @@ describe("lastOrDefault", function ()
     {
         it("should return the last item", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.lastOrDefault();
+            let result = testArray.lastOrDefault();
 
             expect(result).toEqual({ name: '5678', id: 3 });
         });
@@ -30,9 +30,9 @@ describe("lastOrDefault", function ()
     {
         it("should return null", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.lastOrDefault();
+            let result = testArray.lastOrDefault();
 
             expect(result).toEqual(null);
         });
@@ -42,9 +42,9 @@ describe("lastOrDefault", function ()
     {
         it("should return the value of the default function", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.lastOrDefault(function () { return 3; });
+            let result = testArray.lastOrDefault(function () { return 3; });
 
             expect(result).toEqual(3);
         });
@@ -54,9 +54,9 @@ describe("lastOrDefault", function ()
     {
         it("should return that constant", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.lastOrDefault(3);
+            let result = testArray.lastOrDefault(3);
 
             expect(result).toEqual(3);
         });

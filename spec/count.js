@@ -1,4 +1,4 @@
-﻿var Enumerable = require('../src/enumerable');
+﻿let Enumerable = require('../src/enumerable');
 
 describe("count", function ()
 {
@@ -6,9 +6,9 @@ describe("count", function ()
     {
         it("should return the number 1", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }]);
 
-            var result = testArray.count();
+            let result = testArray.count();
 
             expect(result).toEqual(1);
         });
@@ -18,9 +18,9 @@ describe("count", function ()
     {
         it("should return 3", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: '1234', id: 2 }, { name: '5678', id: 3 }]);
 
-            var result = testArray.count();
+            let result = testArray.count();
 
             expect(result).toEqual(3);
         });
@@ -30,9 +30,9 @@ describe("count", function ()
     {
         it("should return 0", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.count();
+            let result = testArray.count();
 
             expect(result).toEqual(0);
         });
@@ -42,9 +42,9 @@ describe("count", function ()
     {
         it("should return items that meet the predicate functions conditions", function ()
         {
-            var testArray = new Enumerable([{ name: 'test', id: 1 }, { name: 'test', id: 2 }, { name: 'test2', id: 2 }]);
+            let testArray = new Enumerable([{ name: 'test', id: 1 }, { name: 'test', id: 2 }, { name: 'test2', id: 2 }]);
 
-            var result = testArray.count(function(i, item, col)
+            let result = testArray.count(function(i, item, col)
             {
                 return item.name === 'test';
             });

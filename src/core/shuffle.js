@@ -1,10 +1,10 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.shuffle = function()
 {
-    var currentIndex = this.collection.length;
-    var temporaryValue;
-    var randomIndex;
+    let currentIndex = this.collection.length;
+    let temporaryValue;
+    let randomIndex;
 
     while (currentIndex !== 0)
     {

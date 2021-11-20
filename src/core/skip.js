@@ -1,17 +1,17 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.skip = function(count)
 {
-    var results = [];
+    let results = [];
 
-    var hasItems = (count > 0);
-    var validSkipCount = (count < this.collection.length);
+    let hasItems = (count > 0);
+    let validSkipCount = (count < this.collection.length);
 
-    var canSkip = (hasItems && validSkipCount);
+    let canSkip = (hasItems && validSkipCount);
 
     if(canSkip)
     {
-        for(var i = 0; i < this.collection.length; i++)
+        for(let i = 0; i < this.collection.length; i++)
         {
             if(i < count)
             {

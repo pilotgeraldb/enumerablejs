@@ -1,17 +1,17 @@
-var Enumerable = require('../enumerable');
+let Enumerable = require('../enumerable');
 
 Enumerable.fn.minimum = function()
 {
-    var result = null;
+    let result = null;
 
     function isNumeric(x)
     {
         return (x !== null && x.getType() === 'number') && (x % 1 === 0);
     }
 
-    var temp = [];
+    let temp = [];
 
-    for(var i = 0; i < this.collection.length; i++)
+    for(let i = 0; i < this.collection.length; i++)
     {
         if(isNumeric(this.collection[i]))
         {

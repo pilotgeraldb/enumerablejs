@@ -1,4 +1,4 @@
-var Enumerable = require('../src/enumerable');
+let Enumerable = require('../src/enumerable');
 
 describe("orderByDescending", function ()
 {
@@ -6,9 +6,9 @@ describe("orderByDescending", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable(["abc"]);
+            let testArray = new Enumerable(["abc"]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable(["abc"]));
         });
@@ -18,9 +18,9 @@ describe("orderByDescending", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable([56]);
+            let testArray = new Enumerable([56]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([56]));
         });
@@ -30,9 +30,9 @@ describe("orderByDescending", function ()
     {
         it("should return that item", function ()
         {
-            var testArray = new Enumerable([{ name: "test", value: 123 }]);
+            let testArray = new Enumerable([{ name: "test", value: 123 }]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([{ name: "test", value: 123 }]));
         });
@@ -42,9 +42,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 strings sorted in descending order", function ()
         {
-            var testArray = new Enumerable(["ghi", "abc", "def"]);
+            let testArray = new Enumerable(["ghi", "abc", "def"]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable(["ghi", "def", "abc"]));
         });
@@ -54,9 +54,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 datetime objects sorted in descending order", function ()
         {
-            var testArray = new Enumerable([new Date(2013,00,01), new Date(2014,00,01), new Date(2015,00,01)]);
+            let testArray = new Enumerable([new Date(2013,00,01), new Date(2014,00,01), new Date(2015,00,01)]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([new Date(2015,00,01), new Date(2014,00,01), new Date(2013,00,01)]));
         });
@@ -66,9 +66,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 strings correctly altered by the function parameter, then sorted in descending order", function ()
         {
-            var testArray = new Enumerable(["dog", "cat", "cow"]);
+            let testArray = new Enumerable(["dog", "cat", "cow"]);
 
-            var result = testArray.orderByDescending(null, function(x) 
+            let result = testArray.orderByDescending(null, function(x) 
             { 
                 if(x === "dog")
                 {
@@ -91,9 +91,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 numbers sorted in descending order", function ()
         {
-            var testArray = new Enumerable([1, 2, 3]);
+            let testArray = new Enumerable([1, 2, 3]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([3, 2, 1]));
         });
@@ -103,9 +103,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 numbers correctly altered by the function parameter, then sorted in descending order", function ()
         {
-            var testArray = new Enumerable([123, 345, 678]);
+            let testArray = new Enumerable([123, 345, 678]);
 
-            var result = testArray.orderByDescending(null, function(x) 
+            let result = testArray.orderByDescending(null, function(x) 
             { 
                 return x + 10;
             });
@@ -118,9 +118,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 objects unsorted", function ()
         {
-            var testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
+            let testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]));
         });
@@ -130,9 +130,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 objects sorted in descending order by the specified datetime property", function ()
         {
-            var testArray = new Enumerable([{ name: "test2", value: 456, d: new Date(2013,00,01) }, { name: "test1", value: 123, d: new Date(2014,00,01) }, { name: "test3", value: 789, d: new Date(2015,00,01) }]);
+            let testArray = new Enumerable([{ name: "test2", value: 456, d: new Date(2013,00,01) }, { name: "test1", value: 123, d: new Date(2014,00,01) }, { name: "test3", value: 789, d: new Date(2015,00,01) }]);
 
-            var result = testArray.orderByDescending("d");
+            let result = testArray.orderByDescending("d");
 
             expect(result).toEqual(new Enumerable([{ name: "test3", value: 789, d: new Date(2015,00,01) }, { name: "test1", value: 123, d: new Date(2014,00,01) }, { name: "test2", value: 456, d: new Date(2013,00,01) }]));
         });
@@ -142,9 +142,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 booleans sorted in descending order", function ()
         {
-            var testArray = new Enumerable([false, false, true]);
+            let testArray = new Enumerable([false, false, true]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([true, false, false]));
         });
@@ -154,9 +154,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 objects sorted in descending order by the specified property", function ()
         {
-            var testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
+            let testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
 
-            var result = testArray.orderByDescending("name");
+            let result = testArray.orderByDescending("name");
 
             expect(result).toEqual(new Enumerable([{ name: "test3", value: 789 }, { name: "test2", value: 456 }, { name: "test1", value: 123 }]));
         });
@@ -166,9 +166,9 @@ describe("orderByDescending", function ()
     {
         it("should return 3 objects sorted in descending order by the specified property", function ()
         {
-            var testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
+            let testArray = new Enumerable([{ name: "test2", value: 456 }, { name: "test1", value: 123 }, { name: "test3", value: 789 }]);
 
-            var result = testArray.orderByDescending("name", function(x) 
+            let result = testArray.orderByDescending("name", function(x) 
             { 
                 x.value = x.value + 10;
                 return x;
@@ -182,9 +182,9 @@ describe("orderByDescending", function ()
     {
         it("should return an empty enumerable", function ()
         {
-            var testArray = new Enumerable([]);
+            let testArray = new Enumerable([]);
 
-            var result = testArray.orderByDescending();
+            let result = testArray.orderByDescending();
 
             expect(result).toEqual(new Enumerable([]));
         });
