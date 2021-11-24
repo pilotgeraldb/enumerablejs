@@ -17,3 +17,11 @@ $ yarn add asenumerable
 ## install with npm
 $ npm install asenumerable
 ```
+
+## Known Issues
+
+In v1.3.0 require this module in node by using the following:
+
+``` javascript
+var Enumerable = require('asenumerable/dist/enumerable');
+```
