@@ -4,7 +4,9 @@
 
 # enumerablejs 
 
-_this project is still under development and is not completely finished. [Documentation available here](https://ralphy15.github.io/enumerablejs/) You can also [try it on RunKit!](https://npm.runkit.com/asenumerable)_
+## REPOSITORY WILL BE ARCHIVED 03/01/2023
+
+Due to the nature of this repository and my interest in it, I am officially archiving it. It was a good learning project a long time ago, that no longer gets any attention and needs to be sunset. To those of you who downloaded this code and used it, thank you for your support. :)
 
 ### yarn
 ```bash
